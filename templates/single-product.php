@@ -14,6 +14,12 @@
     include HLD_PLUGIN_PATH . 'templates/product/treatment-card.php';
     include HLD_PLUGIN_PATH . 'templates/product/floating-button.php';
     include HLD_PLUGIN_PATH . 'templates/product/healsend-steps.php';
+    include HLD_PLUGIN_PATH . 'templates/product/other-treatments.php';
+    include HLD_PLUGIN_PATH . 'templates/product/rooted-in-science.php';
+    include HLD_PLUGIN_PATH . 'templates/product/performance-section.php';
+    include HLD_PLUGIN_PATH . 'templates/product/image-section.php';
+    
+    
     ?>
 </main>
 <?php get_footer(); ?>

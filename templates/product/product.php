@@ -30,9 +30,22 @@ $primary_get_started_link = get_field('primary_get_started_link');
                 </div>
 
                 <div class="price-wrap">
+                    <?php
+                    // Ensure the variables are integers
+                    $three_month_price = isset($three_month_price) ? (int) $three_month_price : 0;
+                    $discount_first_month_for_three_month_plan = isset($discount_first_month_for_three_month_plan) ? (int) $discount_first_month_for_three_month_plan : 0;
+
+                    // Calculate the discounted first month safely
+                    $first_month_price = $three_month_price - $discount_first_month_for_three_month_plan;
+                    ?>
+
                     <div class="price">
-                        <span class="discount-first-month">$<?php echo $three_month_price - $discount_first_month_for_three_month_plan;  ?></span> first month
-                        <div>then <span class="regular-price">$<?php echo $three_month_price; ?></span>/mon*</div>
+                        <span class="discount-first-month">
+                            $<?php echo $first_month_price; ?>
+                        </span> first month
+                        <div>
+                            then <span class="regular-price">$<?php echo $three_month_price; ?></span>/mon*
+                        </div>
                     </div>
 
                     <div class="payment-methods">
@@ -47,6 +60,7 @@ $primary_get_started_link = get_field('primary_get_started_link');
 
             <?php
             include HLD_PLUGIN_PATH . 'templates/product/main-tabs.php';
+            include HLD_PLUGIN_PATH . 'templates/product/related-products.php';
             // include HLD_PLUGIN_PATH . 'templates/product/main-faq-sec.php';
             ?>
 

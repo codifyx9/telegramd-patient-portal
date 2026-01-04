@@ -29,8 +29,77 @@ class HLDProduct {
     this.initFloatingCTA();
     this.hldInitGLPSlider();
     this.hldInitLabModal();
+    this.initGLPSlider();
   } // init function ends
 
+  initGLPSlider() {
+    const track = document.querySelector(".glp-track");
+    const cards = document.querySelectorAll(".glp-card");
+    const next = document.querySelector(".next");
+    const prev = document.querySelector(".prev");
+
+    if (!track || cards.length === 0) return;
+
+    let index = 0;
+    let autoSlide = null;
+    const gap = 24;
+
+    function getVisibleCards() {
+      const containerWidth = track.parentElement.offsetWidth;
+      const cardWidth = cards[0].offsetWidth + gap;
+      return Math.floor(containerWidth / cardWidth);
+    }
+
+    function shouldScroll() {
+      return cards.length > getVisibleCards();
+    }
+
+    function updateSlider() {
+      if (!shouldScroll()) {
+        track.style.transform = "translateX(0)";
+        next.style.display = "none";
+        prev.style.display = "none";
+        clearInterval(autoSlide);
+        return;
+      }
+
+      next.style.display = "flex";
+      prev.style.display = "flex";
+
+      const cardWidth = cards[0].offsetWidth + gap;
+      track.style.transform = `translateX(-${index * cardWidth}px)`;
+    }
+
+    next.onclick = () => {
+      const maxIndex = cards.length - getVisibleCards();
+      index = Math.min(index + 1, maxIndex);
+      updateSlider();
+    };
+
+    prev.onclick = () => {
+      index = Math.max(index - 1, 0);
+      updateSlider();
+    };
+
+    function startAutoSlide() {
+      if (!shouldScroll()) return;
+
+      autoSlide = setInterval(() => {
+        const maxIndex = cards.length - getVisibleCards();
+        index = index >= maxIndex ? 0 : index + 1;
+        updateSlider();
+      }, 3000);
+    }
+
+    updateSlider();
+    startAutoSlide();
+
+    window.addEventListener("resize", () => {
+      index = 0;
+      updateSlider();
+      startAutoSlide();
+    });
+  }
   hldInitLabModal() {
     const openBtn = document.querySelector("[data-hld-open-modal]");
     const modal = document.querySelector("[data-hld-modal]");
