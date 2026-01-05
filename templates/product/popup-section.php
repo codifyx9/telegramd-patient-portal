@@ -16,8 +16,7 @@
         <button
           type="button"
           class="hld-lab-pill hld-lab-pill--primary"
-          data-hld-open-modal
-        >
+          data-hld-open-modal>
           Third party quality control testing
           <span class="hld-lab-pill-link">Learn more</span>
         </button>
@@ -30,10 +29,9 @@
 
     <div class="hld-lab-media">
       <img
-        src="/mnt/data/968fb3d0-2de7-4ed3-80a1-557c11fef615.png"
+        src="https://healsend.com/wp-content/uploads/2025/11/AdobeStock_483501137_Preview-1.jpeg"
         alt="Medication quality control lab testing"
-        loading="lazy"
-      />
+        loading="lazy" />
     </div>
 
   </div>
@@ -45,19 +43,17 @@
 
 
 <!-- Popup Content  -->
- <div class="hld-modal-overlay" data-hld-modal>
+<div class="hld-modal-overlay" data-hld-modal>
   <div
     class="hld-modal"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="hld-modal-title"
-  >
+    aria-labelledby="hld-modal-title">
     <button
       type="button"
       class="hld-modal-close"
       aria-label="Close dialog"
-      data-hld-close-modal
-    >
+      data-hld-close-modal>
       ×
     </button>
 

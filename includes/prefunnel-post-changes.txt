@@ -62,4 +62,7 @@ steps to export a funnel from localhost to live
 
 
 
+whitle in hero
+images bottom in purple section 
+
 

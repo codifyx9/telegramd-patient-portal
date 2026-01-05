@@ -10,16 +10,18 @@
   --active-bg: #ffffff;
   --hld-black: #000;
   --sec-max-width: 1440px;
+  --font-poppins: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 .hld-product {
   width: 100%;
-  font-family: var(--hld-font-primary);
+  font-family: var(--font-poppins);
 }
-/* .hld-product button:hover,
-.hld-product button:focus{
-  background-color: initial;
-} */
+.hld-product .hld-btn-primary:hover,
+.hld-product .hld-btn-primary:focus {
+  color: var(--primary) !important;
+}
 .hld-product .section {
   width: 100%;
 }
@@ -56,6 +58,7 @@
   font-weight: bold;
   text-align: left;
   font-family: var(--hld-font-primary);
+  font-size: 2rem;
 }
 .hld-product .product-detail-wrap {
   width: 40%;
@@ -79,11 +82,11 @@
 }
 .payment-methods {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 6px;
 }
 .payment-methods img {
-  width: 80px;
+  height: 30px;
 }
 .section-product .cta-link {
   margin: 15px auto 0 auto;
@@ -1105,7 +1108,7 @@ Hero section
   background: rgba(255, 255, 255, 0.15);
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -1115,6 +1118,9 @@ Hero section
   font-weight: 800;
   margin-bottom: 2rem;
   text-align: left;
+  margin-top: 0;
+  padding-top: 0;
+  font-family: var(--font-poppins);
 }
 
 .hld-hero__title span {
@@ -1126,11 +1132,17 @@ Hero section
   align-items: center;
   gap: 2rem;
   margin-bottom: 2.5rem;
+  background: white;
+  color: black;
+  width: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 10px;
 }
 
 .hld-hero__rate strong {
-  font-size: 2rem;
+  font-size: 3rem;
   display: block;
+  color: var(--primary);
 }
 
 .hld-hero__rate span {
@@ -1209,7 +1221,7 @@ Hero section
 
 @media (max-width: 480px) {
   .hld-hero {
-    padding: 4rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .hld-hero__avatars img {
@@ -1915,6 +1927,30 @@ IMAGE SECTION
   .section-faq {
     padding: 0 16px;
   }
+  .hld-hero__badge {
+    font-size: 1rem;
+  }
+  .hld-hero__title {
+    text-align: center;
+  }
+  .hld-hero__title {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .hld-hero__stats {
+    width: 100%;
+  }
+  .payment-methods {
+    flex-direction: column;
+  }
+  .payment-methods img {
+    height: initial;
+    width: 80px;
+  }
+  .hld-hero__container {
+    gap: 2rem;
+  }
+  /* mobile_device_ends */
 }
 
 @media (max-width: 992px) {
