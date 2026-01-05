@@ -545,6 +545,10 @@ ul.benefits li {
   justify-content: center;
   align-items: center;
 }
+.hld-reviews__arrow:hover {
+  background-color: var(--primary);
+  color: white !important;
+}
 
 .hld-reviews__arrow--left {
   right: 64px;
@@ -553,8 +557,7 @@ ul.benefits li {
 
 .hld-reviews__arrow--right {
   right: 8px;
-  background: var(--primary);
-  color: #fff;
+  color: black !important;
 }
 
 .hld-glp {
@@ -946,28 +949,37 @@ ul.benefits li {
 
 .hld-slide-overlay p {
   color: var(--hld-white);
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   font-weight: 500;
   margin: 0;
+  line-height: 1.4;
 }
 
 /* Buttons */
 .hld-slider-btn {
-  position: absolute;
-  top: 50%;
   transform: translateY(-50%);
-  background: var(--primary);
-  color: var(--hld-white);
+  background: var(--pill-bg);
+  color: black;
   border: none;
   width: 44px;
   height: 44px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 5;
+}
+.hld-slider-btn:hover {
+  background-color: var(--primary);
+  color: white !important;
+}
+.benefits-slider-btns-wrap {
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+  margin-top: 50px;
 }
 
 .hld-prev {
@@ -1236,11 +1248,16 @@ Popup Section
 
 /* ===== SECTION ===== */
 .hld-lab-section {
-  padding: 4rem 3.5rem;
-  background: linear-gradient(135deg, #6d6ffc, #494a98);
+  padding: 7rem 3.5rem;
   border-radius: 2rem;
   margin: 4rem auto;
   max-width: var(--sec-max-width);
+  background-color: transparent;
+  background-image: linear-gradient(
+    180deg,
+    var(--e-global-color-primary) 0%,
+    #260eb4 100%
+  );
 }
 
 .hld-lab-container {
@@ -1269,6 +1286,10 @@ Popup Section
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.hld-lab-actions button:hover {
+  background-color: var(--primary);
 }
 
 .hld-lab-pill {
@@ -1341,6 +1362,10 @@ Popup Section
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hld-modal-close:hover {
+  background-color: var(--primary);
+  color: white;
 }
 
 .hld-modal-title {
@@ -1672,7 +1697,7 @@ ROOTED SECTION IN SCIENCE
 
 .hld-feature-benefits-eyebrow-text {
   display: inline-block;
-  font-size: 12px;
+  font-size: 17px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1680,10 +1705,12 @@ ROOTED SECTION IN SCIENCE
 }
 
 .hld-feature-benefits-main-heading {
-  font-size: 36px;
+  font-size: 3rem;
   line-height: 1.2;
   color: var(--hld-black);
   margin-bottom: 16px;
+  font-weight: bold;
+  font-family: var(--font-poppins);
 }
 
 .hld-feature-benefits-subheading {
@@ -1715,15 +1742,17 @@ ROOTED SECTION IN SCIENCE
 }
 
 .hld-feature-benefit-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--hld-black);
   margin-bottom: 8px;
+  font-family: var(--font-poppins);
 }
 
 .hld-feature-benefit-description {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--muted);
+  font-family: var(--font-poppins);
 }
 
 /* Responsive */
@@ -2037,6 +2066,11 @@ IMAGE SECTION
   }
   .hld-hero__container {
     gap: 2rem;
+  }
+  .hld-lab-section {
+    max-width: calc(100vw - 16px);
+    padding: 5rem 1.3rem;
+    border-radius: 1rem;
   }
   /* mobile_device_ends */
 }

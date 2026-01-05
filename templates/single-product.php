@@ -8,7 +8,7 @@
     include HLD_PLUGIN_PATH . 'templates/product/reviews.php';
     include HLD_PLUGIN_PATH . 'templates/product/image-section.php';
     include HLD_PLUGIN_PATH . 'templates/product/benefits.php';
-    include HLD_PLUGIN_PATH . 'templates/product/performance-section.php';
+    include HLD_PLUGIN_PATH . 'templates/product/why-healsend-section.php';
     include HLD_PLUGIN_PATH . 'templates/product/rooted-in-science.php';
     include HLD_PLUGIN_PATH . 'templates/product/popup-section.php';
     include HLD_PLUGIN_PATH . 'templates/product/remedy-care.php';

@@ -1,74 +1,80 @@
-<section class="hld-feature-benefits-section">
-  <div class="hld-feature-benefits-inner-wrapper">
+<?php
+$show_section = get_field('show_rooted_in_science_section');
 
-    <header class="hld-feature-benefits-header">
-      <span class="hld-feature-benefits-eyebrow-text">
-        Rooted in Science
-      </span>
+if ($show_section) :
 
-      <h2 class="hld-feature-benefits-main-heading">
-        Designed to Support How You Feel &amp; Function
-      </h2>
+  $mini_heading = get_field('rooted_in_science_mini_heading');
+  $main_heading = get_field('rooted_in_science_main_heading');
+  $sub_heading  = get_field('rooted_in_science_sub_heading');
+?>
 
-      <p class="hld-feature-benefits-subheading">
-        You will notice differences in how you eat, lose weight, and feel.
-      </p>
-    </header>
+  <section class="hld-feature-benefits-section">
+    <div class="hld-feature-benefits-inner-wrapper">
 
-    <div class="hld-feature-benefits-grid">
+      <!-- Header -->
+      <header class="hld-feature-benefits-header">
 
-      <article class="hld-feature-benefit-card">
-        <div class="hld-feature-benefit-icon-wrapper">
-          <!-- Appetite Icon -->
-          <svg class="hld-feature-benefit-icon" viewBox="0 0 24 24" fill="none">
-            <path d="M12 3c-4.418 0-8 3.582-8 8 0 3.866 2.735 7.09 6.4 7.8V21h3.2v-2.2c3.665-.71 6.4-3.934 6.4-7.8 0-4.418-3.582-8-8-8Z" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M9 10h6" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
+        <?php if ($mini_heading) : ?>
+          <span class="hld-feature-benefits-eyebrow-text">
+            <?php echo esc_html($mini_heading); ?>
+          </span>
+        <?php endif; ?>
+
+        <?php if ($main_heading) : ?>
+          <h2 class="hld-feature-benefits-main-heading">
+            <?php echo esc_html($main_heading); ?>
+          </h2>
+        <?php endif; ?>
+
+        <?php if ($sub_heading) : ?>
+          <p class="hld-feature-benefits-subheading">
+            <?php echo esc_html($sub_heading); ?>
+          </p>
+        <?php endif; ?>
+
+      </header>
+
+      <!-- Cards Grid -->
+      <?php if (have_rows('rooted_in_science_options')) : ?>
+        <div class="hld-feature-benefits-grid">
+
+          <?php while (have_rows('rooted_in_science_options')) : the_row();
+            $image       = get_sub_field('rooted_in_science_repeater_image');
+            $title       = get_sub_field('rooted_in_science_repeater_title');
+            $description = get_sub_field('rooted_in_science_repeater_description');
+          ?>
+            <article class="hld-feature-benefit-card">
+
+              <?php if ($image) : ?>
+                <div class="hld-feature-benefit-icon-wrapper">
+                  <img
+                    src="<?php echo esc_url($image['url']); ?>"
+                    alt="<?php echo esc_attr($image['alt']); ?>"
+                    width="80"
+                    height="80"
+                    loading="lazy">
+                </div>
+              <?php endif; ?>
+
+              <?php if ($title) : ?>
+                <h3 class="hld-feature-benefit-title">
+                  <?php echo esc_html($title); ?>
+                </h3>
+              <?php endif; ?>
+
+              <?php if ($description) : ?>
+                <p class="hld-feature-benefit-description">
+                  <?php echo esc_html($description); ?>
+                </p>
+              <?php endif; ?>
+
+            </article>
+          <?php endwhile; ?>
+
         </div>
-
-        <h3 class="hld-feature-benefit-title">
-          Control Appetite
-        </h3>
-
-        <p class="hld-feature-benefit-description">
-          Feel full sooner. Crave less.
-        </p>
-      </article>
-
-      <article class="hld-feature-benefit-card">
-        <div class="hld-feature-benefit-icon-wrapper">
-          <!-- Energy Icon -->
-          <svg class="hld-feature-benefit-icon" viewBox="0 0 24 24" fill="none">
-            <path d="M4 14h4v6H4v-6Zm6-4h4v10h-4V10Zm6-6h4v16h-4V4Z" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-        </div>
-
-        <h3 class="hld-feature-benefit-title">
-          Steady Energy
-        </h3>
-
-        <p class="hld-feature-benefit-description">
-          Balanced blood sugar = fewer crashes.
-        </p>
-      </article>
-
-      <article class="hld-feature-benefit-card">
-        <div class="hld-feature-benefit-icon-wrapper">
-          <!-- Weight Loss Icon -->
-          <svg class="hld-feature-benefit-icon" viewBox="0 0 24 24" fill="none">
-            <path d="M7 3h10l-3 5 3 5H7l3-5-3-5Z" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-        </div>
-
-        <h3 class="hld-feature-benefit-title">
-          Real Weight Loss
-        </h3>
-
-        <p class="hld-feature-benefit-description">
-          Weekly progress you can see.
-        </p>
-      </article>
+      <?php endif; ?>
 
     </div>
-  </div>
-</section>
+  </section>
+
+<?php endif; ?>

@@ -1,37 +1,49 @@
-<section class="hld-clinical-weight-loss-section">
-    <div class="hld-clinical-weight-loss-inner-container">
+<?php
+// Show / Hide section toggle
+$show_section = get_field('show_image_left_content_section');
 
-        <div class="hld-clinical-weight-loss-layout">
+if ($show_section) :
 
-            <!-- Image Column -->
-            <figure class="hld-clinical-weight-loss-image-wrapper">
-                <img
-                    src="https://healsend.com/wp-content/uploads/2025/11/583b1a53-ff6c-4a40-9902-3c07d314e508-optimized.png"
-                    alt="Couple walking outdoors representing sustainable, clinically guided weight loss"
-                    class="hld-clinical-weight-loss-image"
-                    loading="lazy" />
-            </figure>
+    $image       = get_field('image_left');
+    $title       = get_field('image_left_content_right_section_title');
+    $description = get_field('image_left_content_right_section_description');
+?>
 
-            <!-- Content Column -->
-            <div class="hld-clinical-weight-loss-content">
+    <section class="hld-clinical-weight-loss-section">
+        <div class="hld-clinical-weight-loss-inner-container">
 
-                <h2 class="hld-clinical-weight-loss-heading">
-                    Weight Loss That’s Effective &amp; Sustainable, Guided by Clinical Care
-                </h2>
+            <div class="hld-clinical-weight-loss-layout">
 
-                <p class="hld-clinical-weight-loss-paragraph">
-                    Appetite settles, fullness lasts longer, and food choices feel easier.
-                    Your body finds a steadier rhythm, and weight begins to shift in a
-                    controlled, predictable way.
-                </p>
+                <!-- Image Column -->
+                <?php if (! empty($image)) : ?>
+                    <figure class="hld-clinical-weight-loss-image-wrapper">
+                        <img
+                            src="<?php echo esc_url($image['url']); ?>"
+                            alt="<?php echo esc_attr($image['alt']); ?>"
+                            class="hld-clinical-weight-loss-image"
+                            loading="lazy" />
+                    </figure>
+                <?php endif; ?>
 
-                <p class="hld-clinical-weight-loss-paragraph">
-                    Semaglutide supports a balanced, more manageable approach to eating and
-                    helps your metabolism work the way it’s meant to.
-                </p>
+                <!-- Content Column -->
+                <div class="hld-clinical-weight-loss-content">
+
+                    <?php if (! empty($title)) : ?>
+                        <h2 class="hld-clinical-weight-loss-heading">
+                            <?php echo esc_html($title); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if (! empty($description)) : ?>
+                        <div class="hld-clinical-weight-loss-paragraph">
+                            <?php echo wp_kses_post($description); ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
 
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
+
+<?php endif; ?>
