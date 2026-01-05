@@ -1799,6 +1799,94 @@ IMAGE SECTION
   color: var(--muted);
   margin-bottom: 20px;
 }
+/* ================
+  Tabs Pricing Section
+===================*/
+
+.hld-pricing-section {
+  font-family: var(--font-poppins);
+  padding-bottom: 2rem;
+}
+
+.hld-pricing-container {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.hld-pricing-header {
+  margin-bottom: 20px;
+}
+
+.hld-pricing-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--hld-black);
+}
+
+.hld-pricing-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hld-plan-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hld-plan-last {
+  border-bottom: none;
+}
+
+.hld-plan-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--hld-black);
+}
+
+.hld-plan-right {
+  text-align: right;
+}
+
+.hld-plan-price {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.hld-price-highlight {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.hld-price-note {
+  font-size: 14px;
+  color: var(--primary);
+  margin-left: 4px;
+}
+
+.hld-plan-after {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 2px 0 0;
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 480px) {
+  .hld-plan-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .hld-plan-right {
+    text-align: left;
+  }
+}
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
