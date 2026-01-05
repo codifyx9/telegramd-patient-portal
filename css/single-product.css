@@ -20,7 +20,8 @@
 }
 .hld-product .hld-btn-primary:hover,
 .hld-product .hld-btn-primary:focus {
-  color: var(--primary) !important;
+  background-color: var(--primary) !important;
+  color: white !important;
 }
 .hld-product .section {
   width: 100%;
@@ -213,6 +214,11 @@ ul.benefits li {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
+.hld-faq-question:hover,
+.hld-faq-question:focus {
+  background-color: var(--primary);
+  color: white;
+}
 
 .hld-faq-question {
   width: 100%;
@@ -300,13 +306,20 @@ ul.benefits li {
 
 .hld-btn-primary {
   background: var(--hld-color-primary);
-  color: var(--hld-white);
+  color: var(--hld-white) !important;
 }
 
 .hld-btn-outline {
   background: transparent;
   border: 1px solid var(--primary);
   color: var(--primary);
+}
+.hld-product-btn-outline {
+  border: 1px solid black;
+  color: black;
+}
+.hld-product-btn-outline:hover {
+  color: black !important;
 }
 
 .hld-steps-grid {
@@ -632,6 +645,12 @@ ul.benefits li {
   gap: 16px;
   margin-bottom: 32px;
 }
+.hld-glp__actions a.hld-glp__btn--primary:hover {
+  color: white;
+}
+.hld-glp__btn--outline:hover {
+  color: black !important;
+}
 
 .hld-glp__btn {
   padding: 14px 26px;
@@ -857,6 +876,8 @@ ul.benefits li {
 .hld-cta-button:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(109, 111, 252, 0.3);
+  background-color: var(--primary);
+  color: white;
 }
 
 /* Responsive */
@@ -1182,8 +1203,8 @@ Hero section
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--hld-white);
-  color: var(--primary);
+  color: var(--hld-white);
+  background: var(--primary);
   font-weight: 600;
   padding: 0.9rem 2.2rem;
   border-radius: 999px;
@@ -1195,6 +1216,8 @@ Hero section
 .hld-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  background-color: var(--primary);
+  color: white;
 }
 
 /* ===== RIGHT MEDIA ===== */
@@ -1452,7 +1475,7 @@ Popup Section
   background: var(--card-bg);
   border-radius: 20px;
   box-shadow: var(--hld-shadow-card);
-  padding: 15px 15px;
+  padding: 20px 20px;
   text-align: left;
   width: 30%;
 }
@@ -1476,13 +1499,12 @@ Popup Section
   display: flex;
   gap: 8px;
 }
-
-.badge {
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
+.glp-badges .badge {
+  font-size: 12px !important;
+  padding: 6px 10px !important;
+  border-radius: 999px !important;
   background: var(--pill-bg);
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 
 .badge.popular {
@@ -1519,6 +1541,11 @@ Popup Section
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+}
+.glp-card button.btn,
+.glp-card button.btn:hover {
+  color: white;
+  border-radius: 50px;
 }
 
 .glp-arrows {
@@ -1903,6 +1930,11 @@ IMAGE SECTION
   color: var(--muted);
   margin: 2px 0 0;
 }
+.hld-hero-btn-get-started,
+.hld-hero-btn-get-started:hover {
+  background: white;
+  color: var(--primary) !important;
+}
 
 /* 📱 Mobile Optimization */
 @media (max-width: 480px) {
@@ -2068,9 +2100,12 @@ IMAGE SECTION
     gap: 2rem;
   }
   .hld-lab-section {
-    max-width: calc(100vw - 16px);
-    padding: 5rem 1.3rem;
+    max-width: calc(100vw - 20px);
+    padding: 5rem 1rem;
     border-radius: 1rem;
+  }
+  .hld-remedy-content {
+    margin-top: 70px;
   }
   /* mobile_device_ends */
 }

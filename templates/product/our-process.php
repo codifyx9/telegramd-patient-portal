@@ -8,8 +8,9 @@
             </h2>
 
             <div class="hld-steps-actions">
-                <a href="#" class="hld-product-btn hld-btn-primary">Get started</a>
-                <a href="#" class="hld-product-btn hld-btn-outline">See if you're eligible</a>
+                <?php $primary_get_started_link = get_field('primary_get_started_link'); ?>
+                <a href="<?php echo $primary_get_started_link; ?>" class="hld-product-btn hld-btn-primary">Get started</a>
+                <a href="<?php echo $primary_get_started_link; ?>" class="hld-product-btn hld-btn-outline hld-product-btn-outline">See if you're eligible</a>
             </div>
         </header>
 

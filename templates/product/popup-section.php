@@ -28,10 +28,16 @@
     </div>
 
     <div class="hld-lab-media">
-      <img
-        src="https://healsend.com/wp-content/uploads/2025/11/AdobeStock_483501137_Preview-1.jpeg"
-        alt="Medication quality control lab testing"
-        loading="lazy" />
+      <?php
+      $image = get_field('lab_section_image');
+
+      if (! empty($image)) :
+      ?>
+        <img
+          src="<?php echo esc_url($image['url']); ?>"
+          alt="<?php echo esc_attr($image['alt']); ?>"
+          loading="lazy" />
+      <?php endif; ?>
     </div>
 
   </div>

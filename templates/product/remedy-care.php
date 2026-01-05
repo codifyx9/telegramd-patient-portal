@@ -89,7 +89,9 @@
         </div>
 
         <div class="hld-cta-wrap">
-            <a href="#" class="hld-cta-button">
+
+            <?php $primary_get_started_link = get_field('primary_get_started_link'); ?>
+            <a href="<?php echo  $primary_get_started_link; ?>" class="hld-cta-button">
                 Start Your Weight Loss Journey
             </a>
         </div>

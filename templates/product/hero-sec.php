@@ -35,22 +35,22 @@ $hero_main_image    = get_field('hero_main_right_image');
 
         <?php if (have_rows('hero_avatars')): ?>
           <div class="hld-hero__avatars">
-            <?php while (have_rows('hero_avatars')): the_row(); 
+            <?php while (have_rows('hero_avatars')): the_row();
               $avatar = get_sub_field('single_avatar_image');
               if ($avatar):
             ?>
-              <img
-                src="<?php echo esc_url($avatar['url']); ?>"
-                alt="<?php echo esc_attr($avatar['alt'] ?: 'Member profile'); ?>"
-              />
-            <?php endif; endwhile; ?>
+                <img
+                  src="<?php echo esc_url($avatar['url']); ?>"
+                  alt="<?php echo esc_attr($avatar['alt'] ?: 'Member profile'); ?>" />
+            <?php endif;
+            endwhile; ?>
           </div>
         <?php endif; ?>
 
       </div>
 
       <?php if ($hero_link): ?>
-        <a href="<?php echo esc_url($hero_link); ?>" class="hld-btn-primary">
+        <a href="<?php echo esc_url($hero_link); ?>" class="hld-btn-primary hld-hero-btn-get-started">
           Get Started Now
         </a>
       <?php endif; ?>
@@ -63,8 +63,7 @@ $hero_main_image    = get_field('hero_main_right_image');
         <img
           src="<?php echo esc_url($hero_main_image); ?>"
           alt="GLP-1 weight loss program product"
-          class="hld-hero__image"
-        />
+          class="hld-hero__image" />
       </div>
     <?php endif; ?>
 
