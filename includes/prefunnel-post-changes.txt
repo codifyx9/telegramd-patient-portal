@@ -64,5 +64,43 @@ steps to export a funnel from localhost to live
 
 whitle in hero
 images bottom in purple section 
-
-
+outline like https://remedymeds.com/
+henry meds check circular and phool 
+https://remedymeds.com/
+Coupounded in USA
+ribben phool circular on blur 
+Need to make text dynamic
+Put the text on top and image below
+larger the text 
+Americal #1 most 
+remove get started space from above get started button
+pricing glittch on mobile 
++ and checkmar on on purple icon
+use american flag here
+questions boxes need to be smaller 
+remove selected color from question on select and focus as well
+remedy meds shadows from remedy care
+included not center shield and + with included
+checkmarks need to improve
+Button shadow 
+The most comprehensive GLP 1 care showld be purple 
+Improve the gradient  fix the gradient of popup section  
+remedy meds ka shadow fix 
+Step ko align karna hai 
+related products par zoom in effect and row on mobile 
+related products after The actual Image 
+Why is everyone gap need to be fixed
+We outperform the Underline
+left 2x for remedy meds 
+darker blue for the bg of 2x section 
+put the lady of remedy in the bottom
+the issue of product  on mobile device colors  text of the label should be dynamic  
+see if you qualify is need oto make bigger 
+swipeable the prodcts card  
+Product name is blue and bolded on the card 
+from the left or right i need to fix 
+smooth animation with the FAQ
+Icon change option in the benefits + the product bottom card 
+Global animation for buttons
+under related products 
+fades in and fades out animation in the arrows 

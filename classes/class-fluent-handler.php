@@ -378,7 +378,11 @@ if (! class_exists('hldFluentHandler')) {
         {
             error_log("function order_confirmation called");
             $GhlApiClient = new GhlApiClient(GHL_API_KEY);
-            $data = [];
+            $data = [
+                "queryParams" => [
+                    "o" => "o"
+                ]
+            ];
             $GhlApiClient->sendToWebhook('https://services.leadconnectorhq.com/hooks/tqGhhCGePHa1hQkrrOQY/webhook-trigger/2a1c742c-ed0b-4819-ad91-f30cc959d008', $data);
             error_log("order_confirmation webhook called");
         }
