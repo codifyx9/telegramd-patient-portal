@@ -33,8 +33,6 @@ Do any other plans, such as Metabolic or PT-141, include follow-up questionnaire
 -- most popular in weekly
 -- Choose your plan  (remove the line Please note that to select a specific you can use the above options)
 -- remove fallback values from create_patient function also patient_creation should be failed if any information is not provided
-
-
 -- Add products to stripe
 -- make action item for refund payment
 -- renew the order for one month and 3 months

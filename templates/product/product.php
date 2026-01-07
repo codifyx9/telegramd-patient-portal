@@ -26,7 +26,10 @@ $primary_get_started_link = get_field('primary_get_started_link');
 
             <div class="pricing-wrap">
                 <div class="tag">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#6d6ffc" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-check size-3 [&amp;&gt;path:first-child]:fill-brand [&amp;&gt;path:first-child]:stroke-none [&amp;&gt;path:last-child]:stroke-white" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path><path d="m9 12 2 2 4-4"></path></svg> <strong><?php echo $card_tagger_line; ?></strong>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#6d6ffc" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-check size-3 [&amp;&gt;path:first-child]:fill-brand [&amp;&gt;path:first-child]:stroke-none [&amp;&gt;path:last-child]:stroke-white" aria-hidden="true">
+                        <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                    </svg> <strong><?php echo $card_tagger_line; ?></strong>
                 </div>
 
                 <div class="price-wrap">
@@ -60,6 +63,17 @@ $primary_get_started_link = get_field('primary_get_started_link');
 
             <?php
             include HLD_PLUGIN_PATH . 'templates/product/main-tabs.php';
+            ?>
+            <figure class="img-wrap main-product-img-mobile">
+                <?php
+                if (has_post_thumbnail()) {
+                    // Output the featured image with alt text
+                    the_post_thumbnail('large', ['alt' => get_the_title()]);
+                }
+                ?>
+
+            </figure>
+            <?php
             include HLD_PLUGIN_PATH . 'templates/product/related-products.php';
             // include HLD_PLUGIN_PATH . 'templates/product/main-faq-sec.php';
             ?>

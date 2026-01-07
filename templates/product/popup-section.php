@@ -26,7 +26,7 @@
           </svg>
         </button>
 
-        <div class="hld-lab-pill">
+        <div class="hld-lab-pill hld-lab-pill-second">
           🇺🇸 Compounded in U.S. pharmacies
         </div>
       </div>

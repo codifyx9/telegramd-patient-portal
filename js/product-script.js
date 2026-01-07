@@ -30,7 +30,63 @@ class HLDProduct {
     this.hldInitGLPSlider();
     this.hldInitLabModal();
     this.initGLPSlider();
+    this.initNewProductsSlider();
+
   } // init function ends
+
+
+
+
+  initNewProductsSlider() {
+  const slider = document.querySelector("[data-hld-new-slider]");
+  if (!slider) return;
+
+  const cards = slider.children;
+  const prevBtn = document.querySelector(".hld-new-arrow--left");
+  const nextBtn = document.querySelector(".hld-new-arrow--right");
+
+  let index = 0;
+  let startX = 0;
+  let isDragging = false;
+
+  const visibleCards = () => (window.innerWidth <= 768 ? 1 : 3);
+
+  const updateSlider = () => {
+    const cardWidth = cards[0].offsetWidth + 24;
+    slider.style.transform = `translateX(-${index * cardWidth}px)`;
+  };
+
+  nextBtn.addEventListener("click", () => {
+    const max = cards.length - visibleCards();
+    index = index >= max ? 0 : index + 1;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    const max = cards.length - visibleCards();
+    index = index <= 0 ? max : index - 1;
+    updateSlider();
+  });
+
+  /* Swipe support */
+  slider.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  slider.addEventListener("touchend", e => {
+    if (!isDragging) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) nextBtn.click();
+    if (diff < -50) prevBtn.click();
+    isDragging = false;
+  });
+
+  window.addEventListener("resize", updateSlider);
+}
+
+
+
 
   initGLPSlider() {
     const track = document.querySelector(".glp-track");
@@ -266,6 +322,14 @@ class HLDProduct {
         const isOpen = item.classList.contains("is-open");
 
         item.classList.toggle("is-open");
+
+        const answer = item.querySelector(".hld-faq-answer");
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+          answer.style.maxHeight = null;
+        }
+
         icon.textContent = isOpen ? "+" : "×";
       });
     });

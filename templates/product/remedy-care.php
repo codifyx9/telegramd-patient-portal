@@ -15,7 +15,7 @@ SVG;
 
         <header class="hld-section-header">
             <h2>
-                You're not just getting medication. You're getting full care on demand
+                You're not just getting <span>medication</span>. You're getting  <span>full care on demand </span>
                 to keep you motivated, safe, & reaching your weight-loss goals.
             </h2>
         </header>
@@ -35,8 +35,8 @@ SVG;
                         </ul>
                     </div>
 
-                    <div class="hld-card-media">
-                        <img src="https://healsend.com/wp-content/uploads/2025/12/unlimited-calls.webp" alt="Licensed clinician on video call" />
+                    <div class="hld-card-media ">
+                        <img src="https://healsend.com/wp-content/uploads/2025/12/unlimited-calls.webp" alt="Licensed clinician on video call" class="clinician-img" />
                     </div>
                 </div>
             </article>

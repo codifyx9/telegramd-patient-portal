@@ -12,8 +12,34 @@ if (!function_exists('hld_log')) {
         }
     }
 }
+if (!function_exists('hld_wrap_middle_words_in_span')) {
 
+    function hld_wrap_middle_words_in_span($title, $middle_words = 3)
+    {
+        if (!$title) return '';
 
+        $words = explode(' ', trim($title));
+        $count = count($words);
+
+        if ($count <= $middle_words + 2) {
+            return esc_html($title);
+        }
+
+        $start = 2; // first 2 words normal
+        $length = min($middle_words, $count - $start - 1);
+
+        $before = array_slice($words, 0, $start);
+        $middle = array_slice($words, $start, $length);
+        $after  = array_slice($words, $start + $length);
+
+        return sprintf(
+            '%s <span>%s</span> %s',
+            esc_html(implode(' ', $before)),
+            esc_html(implode(' ', $middle)),
+            esc_html(implode(' ', $after))
+        );
+    }
+}
 
 function hld_action_item($title, $msg, $link, $btn_label = "Complete Visit")
 {

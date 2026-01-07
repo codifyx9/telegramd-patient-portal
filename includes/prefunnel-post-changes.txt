@@ -78,31 +78,31 @@ remove get started space from above get started button
 use american flag here
 questions boxes need to be smaller 
 remove selected color from question on select and focus as well
-
 remedy meds shadows from remedy care
 included not center shield and + with included
 remedy meds ka shadow fix 
-
 checkmarks need to improve
 Button shadow 
-The most comprehensive GLP 1 care showld be purple 
-Improve the gradient  fix the gradient of popup section  
-
-Step ko align karna hai 
 related products par zoom in effect 
 related products after The actual Image 
-Why is everyone gap need to be fixed
 We outperform the Underline
+Why is everyone gap need to be fixed
 left 2x for remedy meds 
 darker blue for the bg of 2x section 
 put the lady of remedy in the bottom
-the issue of product  on mobile device colors  text of the label should be dynamic  
+smooth animation with the FAQ
+
 see if you qualify is need oto make bigger 
+
+the issue of product  on mobile device colors  text of the label should be dynamic  
 swipeable the prodcts card  
 Product name is blue and bolded on the card 
 from the left or right i need to fix 
-smooth animation with the FAQ
+
 Icon change option in the benefits + the product bottom card 
 Global animation for buttons
-under related products 
+
 fades in and fades out animation in the arrows 
+Step ko align karna hai 
+The most comprehensive GLP 1 care showld be purple 
+Improve the gradient  fix the gradient of popup section  
