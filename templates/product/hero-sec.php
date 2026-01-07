@@ -5,7 +5,6 @@ $success_percentage = get_field('success_percentage');
 $hero_link          = get_field('hero_get_started_link'); // URL
 $hero_main_image    = get_field('hero_main_right_image');
 ?>
-
 <section class="hld-hero" aria-labelledby="hld-hero-title">
   <div class="hld-hero__container">
 
@@ -29,7 +28,7 @@ $hero_main_image    = get_field('hero_main_right_image');
         <?php if ($success_percentage): ?>
           <div class="hld-hero__rate">
             <strong><?php echo esc_html($success_percentage); ?></strong>
-            <span>Success Rate Nationwide</span>
+            <span>Success Rate Nationwide <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#6d6ffc" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-check size-3 [&amp;&gt;path:first-child]:fill-brand [&amp;&gt;path:first-child]:stroke-none [&amp;&gt;path:last-child]:stroke-white" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
           </div>
         <?php endif; ?>
 
@@ -49,11 +48,7 @@ $hero_main_image    = get_field('hero_main_right_image');
 
       </div>
 
-      <?php if ($hero_link): ?>
-        <a href="<?php echo esc_url($hero_link); ?>" class="hld-btn-primary hld-hero-btn-get-started">
-          Get Started Now
-        </a>
-      <?php endif; ?>
+
 
     </header>
 
@@ -67,5 +62,14 @@ $hero_main_image    = get_field('hero_main_right_image');
       </div>
     <?php endif; ?>
 
+
+
+  </div>
+  <div class="get_started_btn_wrap">
+    <?php if ($hero_link): ?>
+      <a href="<?php echo esc_url($hero_link); ?>" class="hld-btn-primary hld-hero-btn-get-started">
+        Get Started Now
+      </a>
+    <?php endif; ?>
   </div>
 </section>

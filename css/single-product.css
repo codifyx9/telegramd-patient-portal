@@ -80,6 +80,10 @@
   color: white;
   text-align: center;
   padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 .payment-methods {
   display: flex;
@@ -197,7 +201,15 @@ ul.benefits li {
   font-size: 0.85rem;
   color: var(--muted) !important;
 }
-
+.card-footer span img.emoji {
+  width: 1.5em !important;
+  height: 1.5em !important;
+}
+.card-footer span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 /* Main FAQ */
 .hld-faq {
   max-width: 700px;
@@ -216,8 +228,8 @@ ul.benefits li {
 }
 .hld-faq-question:hover,
 .hld-faq-question:focus {
-  background-color: var(--primary);
-  color: white;
+  background-color: initial;
+  color: black;
 }
 
 .hld-faq-question {
@@ -682,7 +694,6 @@ ul.benefits li {
 
 /* Image */
 .hld-glp__image-wrap {
-  background: var(--pill-bg);
   border-radius: 20px;
   padding: 32px;
   display: flex;
@@ -763,12 +774,17 @@ ul.benefits li {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.1) 0px 8px 10px;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 /* Card */
 .hld-card {
   background: var(--card-bg);
-  border-radius: 16px;
+  border-radius: 10px;
   box-shadow: var(--hld-shadow-card);
   padding: 24px;
   position: relative;
@@ -793,8 +809,12 @@ ul.benefits li {
   left: 0;
   width: 100%;
   border-radius: 0;
-  padding: 12px;
-  font-size: 1.1rem;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 /* Card Content */
 .hld-card-content {
@@ -813,6 +833,9 @@ ul.benefits li {
     rgb(255, 255, 255) 30%,
     rgb(240, 245, 250) 100%
   );
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
 }
 
 .hld-card-text {
@@ -1117,20 +1140,27 @@ Hero section
 .hld-hero {
   width: 100%;
   padding: 6rem 1.5rem;
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     rgba(109, 111, 252, 1) 0%,
     rgba(109, 111, 252, 0.85) 45%,
     rgba(109, 111, 252, 0.65) 100%
+  ); */
+  background: linear-gradient(
+    135deg,
+    rgba(109, 111, 252, 1) 0%,
+    rgba(109, 111, 252, 0.85) 45%,
+    rgb(8 11 255 / 65%) 100%
   );
+
   color: var(--hld-white);
 }
 
 .hld-hero__container {
   max-width: var(--sec-max-width);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 4rem;
 }
@@ -1179,8 +1209,12 @@ Hero section
 }
 
 .hld-hero__rate span {
-  font-size: 0.95rem;
-  opacity: 0.9;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
 }
 
 /* ===== AVATARS ===== */
@@ -1231,8 +1265,13 @@ Hero section
   margin-left: auto;
   border-radius: 1.5rem;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  border: 1px solid white;
 }
 
+.get_started_btn_wrap {
+  max-width: var(--sec-max-width);
+  margin: auto;
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .hld-hero__container {
@@ -1251,6 +1290,7 @@ Hero section
 
   .hld-hero__image {
     margin: 0 auto 2rem;
+    border-radius: 10px;
   }
 }
 
@@ -1667,7 +1707,7 @@ RELATED PRODUCTS
 
 .hld-related-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
@@ -1690,6 +1730,7 @@ RELATED PRODUCTS
   max-width: 220px;
   height: auto;
   object-fit: contain;
+  height: 120px;
 }
 
 .hld-related-caption {
@@ -1909,7 +1950,7 @@ IMAGE SECTION
 }
 
 .hld-plan-price {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   margin: 0;
 }
@@ -1939,9 +1980,10 @@ IMAGE SECTION
 /* 📱 Mobile Optimization */
 @media (max-width: 480px) {
   .hld-plan-item {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: baseline;
     gap: 8px;
+    padding: 16px 13px;
   }
 
   .hld-plan-right {
@@ -2045,12 +2087,14 @@ IMAGE SECTION
 
   .hld-reviews__title {
     font-size: 26px;
+    margin-bottom: 0;
   }
   .hld-product .product-wrap {
     flex-direction: column-reverse;
   }
   .hld-product .img-wrap {
     width: 90%;
+    padding-top: 0;
   }
   .hld-product .product-detail-wrap {
     width: 100%;
@@ -2061,6 +2105,7 @@ IMAGE SECTION
   }
   .hld-product .product-detail-wrap h1 {
     padding-top: 1rem;
+    padding-bottom: 5px;
   }
   .hld-floating-cta {
     top: auto;
@@ -2088,6 +2133,9 @@ IMAGE SECTION
   }
   .hld-hero__stats {
     width: 100%;
+    margin-bottom: 1.5rem;
+    flex-direction: column;
+    gap: 10px;
   }
   .payment-methods {
     flex-direction: column;
@@ -2097,7 +2145,11 @@ IMAGE SECTION
     width: 80px;
   }
   .hld-hero__container {
-    gap: 2rem;
+    gap: 0rem;
+    flex-direction: column-reverse;
+  }
+  .get_started_btn_wrap a {
+    width: 100%;
   }
   .hld-lab-section {
     max-width: calc(100vw - 20px);
@@ -2106,6 +2158,65 @@ IMAGE SECTION
   }
   .hld-remedy-content {
     margin-top: 70px;
+  }
+  .section-product .price-wrap {
+    padding: 20px 20px 0 20px;
+  }
+  .section-product .cta-link {
+    margin: 0px auto 0 auto;
+  }
+  .hld-related-media {
+    margin-bottom: 0;
+  }
+  .hld-related-section {
+    padding: 30px 0;
+  }
+  .hld-performance-section {
+    padding: 30px 16px;
+  }
+  .hld-glp-slider-section {
+    padding: 30px 16px;
+  }
+  .hld-feature-benefits-section {
+    padding: 50px 24px;
+  }
+  .hld-glp {
+    padding: 30px 16px;
+  }
+  .hld-feature-icons-section {
+    padding: 30px 16px;
+  }
+  .hld-steps {
+    padding: 30px 1rem;
+  }
+  .glp-section {
+    padding: 30px 1rem;
+  }
+  .hld-lab-pill-link {
+    display: none;
+  }
+  .hld-related-grid {
+    gap: 10px;
+  }
+  .hld-product .img-wrap img {
+    max-height: 500px;
+  }
+  .hld-modal {
+    padding: 4rem 1rem;
+  }
+  .hld-lab-pill {
+    gap: 10px;
+    justify-content: left;
+  }
+  .hld-lab-pill img.emoji {
+    width: 1.5em !important;
+    height: 1.5em !important;
+  }
+  .section-faq .hld-faq-question {
+    padding: 1.5rem 2rem;
+  }
+  .section-faq .hld-faq-title {
+    font-size: 1.3rem;
   }
   /* mobile_device_ends */
 }

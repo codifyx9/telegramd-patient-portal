@@ -1,3 +1,15 @@
+<?php
+function hld_get_shield_plus_icon()
+{
+    return <<<SVG
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-plus" aria-hidden="true">
+  <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+  <path d="M9 12h6"></path>
+  <path d="M12 9v6"></path>
+</svg>
+SVG;
+}
+ ?>
 <section class="hld-benefits-section">
     <div class="hld-container">
 
@@ -12,7 +24,7 @@
 
             <!-- Card 1 -->
             <article class="hld-card hld-remedy-card">
-                <span class="hld-pill hld-included">Included</span>
+                <span class="hld-pill hld-included">Included <?php echo hld_get_shield_plus_icon();  ?></span>
 
                 <div class="hld-card-content hld-remedy-content">
                     <div class="hld-card-text">
@@ -31,7 +43,7 @@
 
             <!-- Card 2 -->
             <article class="hld-card hld-remedy-card">
-                <span class="hld-pill hld-included">Included</span>
+                <span class="hld-pill hld-included">Included <?php echo hld_get_shield_plus_icon();  ?></span>
 
                 <div class="hld-card-content hld-remedy-content">
                     <div class="hld-card-text">
@@ -50,7 +62,7 @@
 
             <!-- Card 3 -->
             <article class="hld-card hld-remedy-card">
-                <span class="hld-pill hld-included">Included</span>
+                <span class="hld-pill hld-included">Included <?php echo hld_get_shield_plus_icon();  ?></span>
 
                 <div class="hld-card-content hld-remedy-content">
                     <div class="hld-card-text">
@@ -69,7 +81,7 @@
 
             <!-- Card 4 -->
             <article class="hld-card hld-remedy-card">
-                <span class="hld-pill hld-included ">Included</span>
+                <span class="hld-pill hld-included ">Included <?php echo hld_get_shield_plus_icon();  ?></span>
 
                 <div class="hld-card-content hld-remedy-content">
                     <div class="hld-card-text">
