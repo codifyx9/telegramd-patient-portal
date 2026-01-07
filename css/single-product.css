@@ -2190,6 +2190,167 @@ NEW PRODUCT CARD CSS SECTION
 }
 
 /* NEW PRODUCT CARD CSS SECTION ENDS */
+
+
+
+/* =====================
+IMAGE SLIDER SECTION
+===================== */
+.hld-image-slider {
+  background: var(--hld-white);
+  padding: 80px 16px;
+  font-family: var(--font-poppins);
+}
+
+.hld-image-slider__container {
+  max-width: var(--sec-max-width);
+  margin: 0 auto;
+}
+
+.hld-image-slider__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.hld-image-slider__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--hld-black);
+}
+
+.hld-image-slider__title span {
+  color: var(--primary);
+}
+
+.hld-image-slider__subtitle {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* Slider */
+.hld-image-slider__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.hld-image-slider__track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.45s ease;
+  padding-bottom: 64px;
+}
+
+/* Card */
+.hld-image-card {
+  flex: 0 0 calc(33.333% - 16px);
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: var(--hld-shadow-card);
+  overflow: hidden;
+}
+
+/* Images */
+.hld-image-card__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 12px;
+}
+
+.hld-image-card__image {
+  position: relative;
+  height: 320px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.hld-image-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hld-image-card__image figcaption {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+/* Content */
+.hld-image-card__content {
+  padding: 20px;
+}
+
+.hld-image-card__badge {
+  display: inline-block;
+  background: var(--pill-bg);
+  color: var(--primary);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.hld-image-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--hld-black);
+}
+
+.hld-image-card__text {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Arrows */
+.hld-image-slider__arrows {
+  position: absolute;
+  right: 8px;
+  bottom: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.hld-image-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--pill-bg);
+  box-shadow: var(--hld-shadow-card);
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hld-image-arrow:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hld-image-card {
+    flex: 0 0 100%;
+  }
+
+  .hld-image-card__image {
+    height: 220px;
+  }
+}
+
+
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .hld-clinical-weight-loss-layout {
