@@ -50,6 +50,9 @@ if (! defined('HLD_AFFILIATE_TABLE')) {
 if (! defined('HLD_PATIENT_DASHBOARD_URL')) {
     define('HLD_PATIENT_DASHBOARD_URL', home_url('/my-account/'));
 }
+if (! defined('HLD_PATIENT_DASHBOARD_PAGE')) {
+    define('HLD_PATIENT_DASHBOARD_PAGE', 'my-account');
+}
 
 
 

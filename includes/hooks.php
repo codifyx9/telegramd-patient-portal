@@ -2,6 +2,29 @@
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 
+add_action('template_redirect', 'hld_redirect_patient_dashboard');
+
+function hld_redirect_patient_dashboard()
+{
+    if (is_admin()) {
+        return;
+    }
+
+    // Replace with your page slug
+    if (!is_page(HLD_PATIENT_DASHBOARD_PAGE)) {
+        return;
+    }
+
+    if (!is_user_logged_in()) {
+        wp_safe_redirect(
+            home_url('/patient-login?patient_login_required=true')
+        );
+        exit;
+    }
+}
+
+
+
 add_action('init', 'hld_handle_custom_login');
 function hld_handle_custom_login()
 {

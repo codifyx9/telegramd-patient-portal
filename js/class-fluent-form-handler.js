@@ -324,6 +324,7 @@ class HldFluentFormHandler {
       We truly appreciate your interest, and we encourage you to check back in the future as eligibility criteria may change.
     </p>
     <a class="hld_disqualify_btn" href="https://healsend.com/">Return to Homepage</a>
+    <button type="button" class="hld_disqualify_btn hldRequestRefund">Request Refund</button>
   `;
 
     wrappers.forEach((wrapper) => {

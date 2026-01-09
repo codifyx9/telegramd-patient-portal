@@ -572,7 +572,7 @@ ul.benefits li {
   height: 44px;
   border-radius: 50%;
   border: none;
-  background: var(--pill-bg);
+  background: var(--primary);
   font-size: 24px;
   cursor: pointer;
   box-shadow: var(--hld-shadow-card);
@@ -587,12 +587,12 @@ ul.benefits li {
 
 .hld-reviews__arrow--left {
   right: 64px;
-  color: var(--hld-black) !important;
+  color: var(--hld-white) !important;
 }
 
 .hld-reviews__arrow--right {
   right: 8px;
-  color: black !important;
+  color: var(--hld-white) !important;
 }
 
 .hld-glp {
@@ -716,8 +716,8 @@ ul.benefits li {
   height: auto;
   display: block;
   width: auto;
-  margin: auto;
-  max-height: 600px;
+  margin-left: auto;
+  max-height: 350px;
 }
 
 /* Floating Button */
@@ -840,7 +840,7 @@ ul.benefits li {
   margin-top: 30px;
 }
 .hld-remedy-card {
-  min-height: 350px;
+  min-height: 230px;
   background-color: rgba(0, 0, 0, 0);
   background-image: linear-gradient(
     rgb(255, 255, 255) 30%,
@@ -860,6 +860,7 @@ ul.benefits li {
   font-size: 1.25rem;
   margin-bottom: 12px;
   color: var(--primary);
+  font-family: var(--font-poppins);
 }
 
 .hld-card-text ul {
@@ -890,12 +891,15 @@ ul.benefits li {
   width: 100%;
   height: auto;
   display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 .hld-card-media .clinician-img {
   position: absolute;
   bottom: 0;
   right: 0;
-  max-width: 180px;
+  max-width: 150px;
 }
 
 /* CTA */
@@ -1022,8 +1026,8 @@ ul.benefits li {
 /* Buttons */
 .hld-slider-btn {
   transform: translateY(-50%);
-  background: var(--pill-bg);
-  color: black;
+  background: var(--primary);
+  color: var(--hld-white);
   border: none;
   width: 44px;
   height: 44px;
@@ -1089,6 +1093,7 @@ HEALSEND STEPS
   font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 600;
   color: var(--hld-black);
+  font-family: var(--font-poppins);
 }
 
 /* Grid */
@@ -2121,7 +2126,8 @@ NEW PRODUCT CARD CSS SECTION
   object-fit: cover;
 }
 .hld-new-card__image_wrap {
-  height: 350px;
+  height: 275px;
+  margin-bottom: 25px;
 }
 
 .hld-new-card__title {
@@ -2167,14 +2173,14 @@ NEW PRODUCT CARD CSS SECTION
   height: 44px;
   border-radius: 50%;
   border: none;
-  background: var(--pill-bg);
+  background: var(--primary);
   box-shadow: var(--hld-shadow-card);
   cursor: pointer;
   font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: var(--hld-white);
 }
 .hld-new-arrow:hover,
 .hld-new-arrow:focus {
@@ -2190,8 +2196,6 @@ NEW PRODUCT CARD CSS SECTION
 }
 
 /* NEW PRODUCT CARD CSS SECTION ENDS */
-
-
 
 /* =====================
 IMAGE SLIDER SECTION
@@ -2324,7 +2328,7 @@ IMAGE SLIDER SECTION
   height: 44px;
   border-radius: 50%;
   border: none;
-  background: var(--pill-bg);
+  background: var(--primary);
   box-shadow: var(--hld-shadow-card);
   cursor: pointer;
   font-size: 24px;
@@ -2337,6 +2341,14 @@ IMAGE SLIDER SECTION
   background: var(--primary);
   color: white;
 }
+.hld-review__verfied_label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  width: fit-content;
+  margin: auto;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -2348,8 +2360,6 @@ IMAGE SLIDER SECTION
     height: 220px;
   }
 }
-
-
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
@@ -2522,7 +2532,11 @@ IMAGE SLIDER SECTION
     border-radius: 1rem;
   }
   .hld-remedy-content {
-    margin-top: 70px;
+    margin-top: 35px;
+  }
+  .remedy-logo-wrap {
+    max-width: 280px;
+    margin: auto; 
   }
   .section-product .price-wrap {
     padding: 20px 20px 0 20px;
@@ -2603,6 +2617,16 @@ IMAGE SLIDER SECTION
   }
   .hld-faq-item.is-open .hld-faq-answer {
     padding: 0rem 2rem;
+  }
+  .hld-remedy-card {
+    min-height: 350px;
+  }
+  .hld-card-media img {
+    position: relative;
+  }
+  .hld-card-media .clinician-img {
+    left: 50%;
+    transform: translateX(-50%);
   }
   /* mobile_device_ends */
 }

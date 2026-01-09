@@ -9,15 +9,21 @@ function hld_get_shield_plus_icon()
 </svg>
 SVG;
 }
- ?>
+?>
 <section class="hld-benefits-section">
     <div class="hld-container">
 
         <header class="hld-section-header">
-            <h2>
-                You're not just getting <span>medication</span>. You're getting  <span>full care on demand </span>
+            <div class="remedy-logo-wrap">
+                <?php
+                if (has_custom_logo()) {
+                    echo get_custom_logo();
+                } ?>
+            </div>
+            <p class="remedy-sub-desc">
+                You're not just getting medication. You're getting full care on demand
                 to keep you motivated, safe, & reaching your weight-loss goals.
-            </h2>
+            </p>
         </header>
 
         <div class="hld-cards-grid">

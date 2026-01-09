@@ -77,7 +77,7 @@ class HLDTelegra {
       type: "POST",
       dataType: "json",
       data: {
-        action: "hld_request_refund",
+        action: "hld_request_refund", 
         nonce: hld_ajax_obj.nonce,
         telegra_order_id: orderId,
       },

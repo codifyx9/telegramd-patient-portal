@@ -4,12 +4,14 @@
 <main class="hld-product">
     <?php
     // This reviews section is now replaced with image reviews section which is a slider 
-    // include HLD_PLUGIN_PATH . 'templates/product/reviews.php';
+
+    // include HLD_PLUGIN_PATH . 'templates/product/testimonials.php';
+
     // this was the old product slider but now its replaced with new-product-sec.php
     // include HLD_PLUGIN_PATH . 'templates/product/other-treatments.php';
     include HLD_PLUGIN_PATH . 'templates/product/hero-sec.php';
     include HLD_PLUGIN_PATH . 'templates/product/product.php';
-    include HLD_PLUGIN_PATH . 'templates/product/testimonials.php';
+    include HLD_PLUGIN_PATH . 'templates/product/reviews.php';
     include HLD_PLUGIN_PATH . 'templates/product/image-review.php';
     include HLD_PLUGIN_PATH . 'templates/product/image-section.php';
     include HLD_PLUGIN_PATH . 'templates/product/benefits.php';

@@ -3,7 +3,7 @@ add_action('wp_ajax_hld_request_refund', 'hld_request_refund_callback');
 add_action('wp_ajax_nopriv_hld_request_refund', 'hld_request_refund_callback');
 
 function hld_request_refund_callback()
-{
+{ 
     check_ajax_referer('hld_nonce', 'nonce');
 
     global $wpdb;
@@ -14,6 +14,7 @@ function hld_request_refund_callback()
     if (empty($order_id)) {
         wp_send_json_error(['message' => 'Invalid order ID.']);
     }
+    error_log("function hld request refund is called");
 
     // Check if row exists
     $exists = $wpdb->get_var(
