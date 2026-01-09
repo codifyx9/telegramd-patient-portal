@@ -16,6 +16,7 @@ Do any other plans, such as Metabolic or PT-141, include follow-up questionnaire
 
 
 
+-- setup affiliate stuff
 -- if patient does not Eligible in action item how to get him removed?
 -- the subscription was created but when i see in orders i do not find any order detail that's scary
 -- Need to add links at privacy policy  and terms and conditions in upload glp  agreement concent in action item 
@@ -154,7 +155,11 @@ Examine the project
 
 
 
-
+We need to put the privacy policy 
+put the questions disqualifer of NAD in post funnel later in beta version
+Update the Messages on GHL 
+worry about the OTP on Phone Later
+worry about email verification later
 
 
 

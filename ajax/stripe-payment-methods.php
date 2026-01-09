@@ -1,4 +1,3 @@
-
 <?php
 add_action('wp_ajax_get_payment_methods', 'handle_get_payment_methods');
 add_action('wp_ajax_add_payment_method', 'handle_add_payment_method');
