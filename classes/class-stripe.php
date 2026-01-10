@@ -139,7 +139,7 @@ class HLD_Stripe
     }
 
 
-
+   
 
     public static function get_subscription_details($subscription_id)
     {

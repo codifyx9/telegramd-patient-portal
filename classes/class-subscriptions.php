@@ -695,6 +695,35 @@ class HLD_UserSubscriptions
 
 
 
+    public static function not_telegra_id($subscription_id)
+    {
+        if (empty($subscription_id)) {
+            return false;
+        }
+
+        global $wpdb;
+        $table = $wpdb->prefix . self::$table_name;
+
+        // Fetch the row matching this subscription
+        $row = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT telegra_order_id FROM {$table} WHERE stripe_subscription_id = %s LIMIT 1",
+                $subscription_id
+            )
+        );
+
+        if (!$row || empty($row->telegra_order_id)) {
+            return false;
+        }
+
+        // Check if telegra_order_id starts with "pending"
+        if (stripos($row->telegra_order_id, 'pending') === 0) {
+            return true;
+        }
+
+        return false;
+    }
+
     public static function sync_subscription_status($subscription_id)
     {
         if (empty($subscription_id)) {
@@ -925,6 +954,43 @@ class HLD_UserSubscriptions
         );
 
         return $exists > 0;
+    }
+
+    public static function order_has_issues($order_id)
+    {
+        // 1. Must start with "pending"
+        if (empty($order_id) || strpos($order_id, 'pending') !== 0) {
+            return false;
+        }
+
+        global $wpdb;
+        $table = $wpdb->prefix . self::$table_name;
+
+        // 2. Fetch row by telegra_order_id
+        $row = $wpdb->get_row(
+            $wpdb->prepare(
+                "SELECT stripe_subscription_id FROM {$table} WHERE telegra_order_id = %s LIMIT 1",
+                $order_id
+            )
+        );
+
+        if (!$row || empty($row->stripe_subscription_id)) {
+            return false;
+        }
+
+        // 3. Fetch subscription from Stripe
+        $subscription = HLD_Stripe::get_subscription_details($row->stripe_subscription_id);
+
+        if (!$subscription || empty($subscription->status)) {
+            return false;
+        }
+
+        // 4. Only return true if subscription is active
+        if ($subscription->status === 'active') {
+            return true;
+        }
+
+        return false;
     }
 }
 HLD_UserSubscriptions::init();

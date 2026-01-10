@@ -701,6 +701,7 @@ class hldStripeHandler {
       const submitButton = submitWrapper.querySelector('button[type="submit"]');
       if (submitButton) {
         this.toggleButtonState(false, this.paymentBtnLabel, this.paymentButton);
+        hldNavigation.toggleLoader(false);
         submitButton.click();
       }
     } else {

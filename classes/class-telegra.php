@@ -273,6 +273,7 @@ class HLD_Telegra
         return $data;
     }
 
+    
 
     public function update_patient_on_telegra($telegra_patient_id, $data = [])
     {

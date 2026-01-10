@@ -174,14 +174,15 @@ foreach ($subscriptions as $subscription): ?>
                         <?php //if (isset($subscription["refund_status"]) && $subscription["refund_status"] == "requested") : 
                         ?>
 
-                        <span class="hld-view-invoice btn btn-primary hlt-btn_revoke_subscription"
-                            id="hld-revoke-sub"
-                            sub-nonce="<?php echo $sub_nonce; ?>"
-                            data="<?php echo $sub_hash . explode('_', $subscription['stripe_subscription_id'])[1]; ?>">
-                            Cancel Subscription & Refund
-                        </span>
+                        <?php if (HLD_UserSubscriptions::not_telegra_id($subscription_id) && $subscription_status == "active"):  ?>
+                            <span class="hld-view-invoice btn btn-primary hlt-btn_revoke_subscription"
+                                id="hld-revoke-sub"
+                                sub-nonce="<?php echo $sub_nonce; ?>"
+                                data="<?php echo $sub_hash . explode('_', $subscription['stripe_subscription_id'])[1]; ?>">
+                                Cancel Subscription & Refund
+                            </span>
 
-                        <?php // endif; 
+                        <?php endif;
                         ?>
 
                     </div>

@@ -14,23 +14,22 @@ $icon_file = '<svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
 ?>
 <div class="container pb-5 hld-orders" id="hldOrdersWrap">
     <?php
+    $orders_to_show = [];
     if (is_user_logged_in()) {
         $user_id = get_current_user_id();
         $orders = HLD_UserSubscriptions::get_orders($user_id);
-        // echo "<pre>";
-        // print_r($orders);
-        // echo "</pre>";
-        // array_push($orders, "order::433fd97b-c6a7-4564-9b2b-aaf7a39d7d78");
-        // array_push($orders, "order::a55a22f5-8bdb-4299-87f7-b18eb2a3a405");
         if (!empty($orders) && is_array($orders)) {
             foreach ($orders as $order_id) {
 
-                if (strpos($order_id, 'pending') === 0) {
-                    // starts with "pending"
+                if (HLD_UserSubscriptions::order_has_issues($order_id)) {
                     include HLD_PLUGIN_PATH . 'templates/dashboard/order/failed-order-notification.php';
-
                     continue;
                 }
+                if (empty($order_id) || strpos($order_id, 'pending') === 0) {
+                    continue;
+                }
+
+                $orders_to_show[] = $order_id;
                 $order = $hld_telegra->get_order($order_id, "");
                 if (!is_wp_error($order) && !$order == null) {
                     $product = $order['productVariations'][0]['productVariation'] ?? [];
@@ -188,7 +187,12 @@ $icon_file = '<svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
         }
         ?>
 </div>
+
 <div class="container pb-5 hld-order-detail-box hidden" id="hldOrderDetailBox">
 </div>
 <?php
     }
+
+    /**
+     * this is important because    
+     */

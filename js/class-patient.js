@@ -6,7 +6,9 @@ class HldPatientLogin {
     this.saveBtn = document.getElementById("hld_save_account_details");
     this.form = document.getElementById("hld-account-details-form");
     this.msgSpan = document.getElementById("hld_account_details_message");
-    this.revokeButtons = document.querySelectorAll(".hlt-btn_revoke_subscription");
+    this.revokeButtons = document.querySelectorAll(
+      ".hlt-btn_revoke_subscription"
+    );
 
     if (this.loginBtn) {
       this.loginBtn.addEventListener("click", (e) => {
@@ -67,11 +69,12 @@ class HldPatientLogin {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `action=revoke_patient_subscription&nonce=${nonce}&data=${data}`,
     });
-    console.log(response);
-    const result = await response.json();
 
-    if (result.data.success) {
+    const result = await response.json();
+    console.log(result);
+    if (result.success) {
       button.innerText = "Cancelled";
+      button.classList.add("hld-btn--disabled");
     } else {
       button.disabled = false;
       button.innerText = "Cancel Subscription & Refund";
