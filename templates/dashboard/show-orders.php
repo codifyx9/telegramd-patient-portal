@@ -24,6 +24,13 @@ $icon_file = '<svg width="12px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 
         // array_push($orders, "order::a55a22f5-8bdb-4299-87f7-b18eb2a3a405");
         if (!empty($orders) && is_array($orders)) {
             foreach ($orders as $order_id) {
+
+                if (strpos($order_id, 'pending') === 0) {
+                    // starts with "pending"
+                    include HLD_PLUGIN_PATH . 'templates/dashboard/order/failed-order-notification.php';
+
+                    continue;
+                }
                 $order = $hld_telegra->get_order($order_id, "");
                 if (!is_wp_error($order) && !$order == null) {
                     $product = $order['productVariations'][0]['productVariation'] ?? [];

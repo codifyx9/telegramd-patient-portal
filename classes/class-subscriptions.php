@@ -417,14 +417,64 @@ class HLD_UserSubscriptions
     }
 
 
-    public static function get_subscriptions()
+    // /**
+    //  * $status can be all or active 
+    //  */
+    // public static function get_subscriptions($status)
+    // {
+    //     // Check if user is logged in
+    //     if (!is_user_logged_in()) {
+    //         return null;
+    //     }
+
+    //     // Get logged-in user's email
+    //     $current_user = wp_get_current_user();
+    //     $email = $current_user->user_email;
+
+    //     if (empty($email)) {
+    //         return null;
+    //     }
+
+    //     global $wpdb;
+    //     $table = $wpdb->prefix . self::$table_name;
+
+    //     // Check if table exists
+    //     if (!hld_table_exists($table)) {
+    //         error_log("Healsend Error: Table does not exist: {$table}");
+    //         return false;
+    //     }
+
+    //     // Fetch ALL subscriptions for this email (latest first)
+    //     $results = $wpdb->get_results(
+    //         $wpdb->prepare(
+    //             "SELECT * 
+    //          FROM $table 
+    //          WHERE patient_email = %s
+    //          ORDER BY subscription_start DESC",
+    //             $email
+    //         ),
+    //         ARRAY_A
+    //     );
+
+    //     return $results ?: [];
+    // }
+
+
+
+
+    /**
+     * Get user subscriptions
+     *
+     * @param string|null $status Allowed: all | active | past_due | canceled | unpaid | incomplete | incomplete_expired | trialing
+     * @return array|null
+     */
+    public static function get_subscriptions($status = null)
     {
-        // Check if user is logged in
+        // User must be logged in
         if (!is_user_logged_in()) {
             return null;
         }
 
-        // Get logged-in user's email
         $current_user = wp_get_current_user();
         $email = $current_user->user_email;
 
@@ -438,23 +488,47 @@ class HLD_UserSubscriptions
         // Check if table exists
         if (!hld_table_exists($table)) {
             error_log("Healsend Error: Table does not exist: {$table}");
-            return false;
+            return [];
         }
 
-        // Fetch ALL subscriptions for this email (latest first)
+        // Normalize status
+        $status = is_string($status) ? strtolower(trim($status)) : '';
+
+        // Allowed statuses (from ENUM)
+        $allowed_statuses = [
+            'active',
+            'past_due',
+            'canceled',
+            'unpaid',
+            'incomplete',
+            'incomplete_expired',
+            'trialing',
+        ];
+
+        // Base query
+        $sql  = "SELECT * FROM {$table} WHERE patient_email = %s";
+        $args = [$email];
+
+        // Apply status filter only if valid & not "all"
+        if (!empty($status) && $status !== 'all' && in_array($status, $allowed_statuses, true)) {
+            $sql  .= " AND subscription_status = %s";
+            $args[] = $status;
+        }
+
+        $sql .= " ORDER BY subscription_start DESC";
+
+        // Execute
         $results = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT * 
-             FROM $table 
-             WHERE patient_email = %s
-             ORDER BY subscription_start DESC",
-                $email
-            ),
+            $wpdb->prepare($sql, ...$args),
             ARRAY_A
         );
 
         return $results ?: [];
     }
+
+
+
+
 
 
 
@@ -500,6 +574,50 @@ class HLD_UserSubscriptions
         // If no row was updated (patient not found), return false
         return $result !== false && $result > 0;
     }
+    public static function get_refund_subscription_notification($order_id)
+    {
+        global $wpdb;
+        $table = $wpdb->prefix . self::$table_name;
+
+        if (empty($order_id)) {
+            return false;
+        }
+
+        // Fetch matching active subscription
+        $row = $wpdb->get_row(
+            $wpdb->prepare(
+                "
+            SELECT 
+                medication_name,
+                subscription_start,
+                subscription_status
+            FROM {$table}
+            WHERE telegra_order_id = %s
+              AND subscription_status = 'active'
+            LIMIT 1
+            ",
+                $order_id
+            ),
+            ARRAY_A
+        );
+
+        if (empty($row)) {
+            return false; // No active subscription found
+        }
+
+        // Convert Unix timestamp to human-readable date
+        $row['subscription_start_human'] = date(
+            'Y-m-d H:i:s',
+            (int) $row['subscription_start']
+        );
+
+        return [
+            'medication_name'           => $row['medication_name'],
+            'subscription_start'        => (int) $row['subscription_start'],
+            'subscription_start_human'  => $row['subscription_start_human'],
+        ];
+    }
+
     public static function update_telegra_product_id($telegra_order_id, $telegra_product_id, $stripe_subscription_id)
     {
         // Validate input

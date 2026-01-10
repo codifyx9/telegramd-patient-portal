@@ -35,7 +35,6 @@ foreach (glob(plugin_dir_path(__FILE__) . 'helper/*.php') as $file) {
     require_once $file;
 }
 
-
 require_once plugin_dir_path(__FILE__) . 'includes/functions.php';
 require_once plugin_dir_path(__FILE__) . 'classes/class-discount.php';
 require_once plugin_dir_path(__FILE__) . 'includes/hooks.php';

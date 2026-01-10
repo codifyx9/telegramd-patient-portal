@@ -17,8 +17,13 @@ if (empty($subscriptions) || !is_array($subscriptions)) {
 error_log(print_r($subscriptions, true));
 
 ?>
-
-<h3 class="hld-subscription-title">Your Active Subscriptions</h3>
+<!-- todo show all subscriptions instead of only displaying the active subscriptions -->
+<!-- <div class="flex"> -->
+    <h3 class="hld-subscription-title">Your Active Subscriptions</h3>
+    <!-- <a href="<?php echo esc_url(add_query_arg('view_all_subscriptions', '1')); ?>">
+        View All
+    </a> -->
+<!-- </div> -->
 
 <?php foreach ($subscriptions as $subscription): ?>
 
@@ -32,6 +37,10 @@ error_log(print_r($subscriptions, true));
     // Subscription core
     $subscription_id        = $stripe_subscription->id;
     $subscription_status    = $stripe_subscription->status; // active, canceled, past_due
+    if($subscription_status != "active"){
+        // skip to display the subscription for now if its not active means only show the active subscriptions
+        continue;
+    }
     $start_date             = $stripe_subscription->start_date;
     $current_period_start   = $stripe_subscription->items->data[0]->current_period_start;
     $current_period_end     = $stripe_subscription->items->data[0]->current_period_end;
@@ -162,11 +171,11 @@ error_log(print_r($subscriptions, true));
                         <?php //if (isset($subscription["refund_status"]) && $subscription["refund_status"] == "requested") : 
                         ?>
 
-                        <span style="display: none;" class="hld-view-invoice btn btn-primary"
+                        <span class="hld-view-invoice btn btn-primary hlt-btn_revoke_subscription"
                             id="hld-revoke-sub"
                             sub-nonce="<?php echo $sub_nonce; ?>"
                             data="<?php echo $sub_hash . explode('_', $subscription['stripe_subscription_id'])[1]; ?>">
-                            Revoke Subscription
+                            Cancel Subscription & Refund
                         </span>
 
                         <?php // endif; 

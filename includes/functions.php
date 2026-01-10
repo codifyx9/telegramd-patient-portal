@@ -41,13 +41,15 @@ if (!function_exists('hld_wrap_middle_words_in_span')) {
     }
 }
 
-function hld_action_item($title, $msg, $link, $btn_label = "Complete Visit")
+function hld_action_item($title, $msg, $link, $btn_label = "Complete Visit", $show_btn = true)
 {
 ?>
     <div class="hld_action_item_wrap">
         <p class="title"><?php echo  $title; ?></p>
         <p class="desc"><?php echo $msg;  ?></p>
-        <a href="<?php echo  $link; ?>"><?php echo $btn_label; ?></a>
+        <?php if ($show_btn) { ?>
+            <a href="<?php echo  $link; ?>"><?php echo $btn_label; ?></a>
+        <?php } ?>
     </div>
 <?php
 }
