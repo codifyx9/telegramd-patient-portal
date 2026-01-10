@@ -705,7 +705,7 @@ class hldStripeHandler {
       }
     } else {
       hldNavigation.toggleLoader(false);
-      this.toggleButtonState(false, this.paymentBtnLabel, this.paymentButton);
+      this.toggleButtonState(true, this.paymentBtnLabel, this.paymentButton);
     }
   }
 

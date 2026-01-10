@@ -14,18 +14,20 @@ if (empty($subscriptions) || !is_array($subscriptions)) {
     hld_not_found("You have no subscriptions yet.");
     return;
 }
-error_log(print_r($subscriptions, true));
+// error_log(print_r($subscriptions, true));
 
 ?>
 <!-- todo show all subscriptions instead of only displaying the active subscriptions -->
 <!-- <div class="flex"> -->
-    <h3 class="hld-subscription-title">Your Active Subscriptions</h3>
-    <!-- <a href="<?php echo esc_url(add_query_arg('view_all_subscriptions', '1')); ?>">
+<h3 class="hld-subscription-title">Your Active Subscriptions</h3>
+<!-- <a href="<?php echo esc_url(add_query_arg('view_all_subscriptions', '1')); ?>">
         View All
     </a> -->
 <!-- </div> -->
 
-<?php foreach ($subscriptions as $subscription): ?>
+<?php
+$active_subscriptions = [];
+foreach ($subscriptions as $subscription): ?>
 
     <?php
     // Generate nonce + hash per subscription
@@ -37,10 +39,11 @@ error_log(print_r($subscriptions, true));
     // Subscription core
     $subscription_id        = $stripe_subscription->id;
     $subscription_status    = $stripe_subscription->status; // active, canceled, past_due
-    if($subscription_status != "active"){
+    if ($subscription_status != "active") {
         // skip to display the subscription for now if its not active means only show the active subscriptions
         continue;
     }
+    $active_subscriptions[] = $subscription_id;
     $start_date             = $stripe_subscription->start_date;
     $current_period_start   = $stripe_subscription->items->data[0]->current_period_start;
     $current_period_end     = $stripe_subscription->items->data[0]->current_period_end;
@@ -188,3 +191,9 @@ error_log(print_r($subscriptions, true));
     </div>
 
 <?php endforeach; ?>
+
+<?php
+if (empty($active_subscriptions)) {
+    hld_not_found("You have no subscriptions yet.");
+}
+?>

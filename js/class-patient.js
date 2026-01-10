@@ -6,7 +6,7 @@ class HldPatientLogin {
     this.saveBtn = document.getElementById("hld_save_account_details");
     this.form = document.getElementById("hld-account-details-form");
     this.msgSpan = document.getElementById("hld_account_details_message");
-    this.revokeButton = document.getElementById("hld-revoke-sub");
+    this.revokeButtons = document.querySelectorAll(".hlt-btn_revoke_subscription");
 
     if (this.loginBtn) {
       this.loginBtn.addEventListener("click", (e) => {
@@ -36,12 +36,15 @@ class HldPatientLogin {
       this.postEmailToIframes();
     }
 
-    if (!this.revokeButton) {
+    if (!this.revokeButtons) {
       console.warn("Revoke button not found.");
     } else {
-      this.revokeButton.addEventListener("click", (e) =>
-        this.handleRevokeSub(e)
-      );
+      // this.revokeButtons.addEventListener("click", (e) =>
+      //   this.handleRevokeSub(e)
+      // );
+      this.revokeButtons.forEach((button) => {
+        button.addEventListener("click", (e) => this.handleRevokeSub(e));
+      });
     }
 
     this.setUpPatientTypeListeners();
@@ -50,6 +53,10 @@ class HldPatientLogin {
   //  Existing sub revoke
   async handleRevokeSub(e) {
     e.preventDefault();
+
+    const button = e.currentTarget; // step 5
+    button.disabled = true; // step 4
+    button.innerText = "Processing...";
 
     let target = e.target;
     let nonce = target.getAttribute("sub-nonce");
@@ -60,7 +67,17 @@ class HldPatientLogin {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `action=revoke_patient_subscription&nonce=${nonce}&data=${data}`,
     });
-    return await response.json();
+    console.log(response);
+    const result = await response.json();
+
+    if (result.data.success) {
+      button.innerText = "Cancelled";
+    } else {
+      button.disabled = false;
+      button.innerText = "Cancel Subscription & Refund";
+    }
+
+    return result;
   }
 
   saveAccountDetails() {

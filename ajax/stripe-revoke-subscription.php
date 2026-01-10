@@ -1,5 +1,4 @@
 <?php
-
 // Subscribe Patient (auto-cancel after X months)
 add_action('wp_ajax_revoke_patient_subscription', 'hld_revoke_patient_subscription');
 add_action('wp_ajax_nopriv_revoke_patient_subscription', 'hld_subscribe_patient_handler');
@@ -71,13 +70,27 @@ function hld_revoke_patient_subscription()
             }
 
 
-            // subscription refund and cancelled success
-            wp_send_json_success([
-                'subscription_id' => $subscription->id,
-                'status' => $subscription->status,
-                'customer_id' => $customer_id,
+            // sync the status of subscription with healsend database
+            $syncing_status = HLD_UserSubscriptions::sync_subscription_status($subscription_id);
 
-            ]);
+            
+            if ($syncing_status) {
+                // ✅ Success
+                error_log("Subscription {$subscription_id} synced successfully.");
+                // subscription refund and cancelled success
+                // todo we need to check and remove action items if there would have
+                wp_send_json_success([
+                    'subscription_id' => $subscription->id,
+                    'status' => $subscription->status,
+                    'customer_id' => $customer_id,
+
+                ]);
+            } else {
+                // ❌ Failed – handle or log the error
+                error_log("Failed to sync subscription {$subscription_id}.");
+                // Optional: send email to admin, notify system, etc.
+                wp_send_json_error(['message' => "Failed to sync subscription {$subscription_id}."]);
+            }
         }
     } catch (Exception $e) {
         wp_send_json_error(['message' => $e->getMessage()]);

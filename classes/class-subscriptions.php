@@ -695,6 +695,64 @@ class HLD_UserSubscriptions
 
 
 
+    public static function sync_subscription_status($subscription_id)
+    {
+        if (empty($subscription_id)) {
+            error_log("sync_subscription_status was called but subscription_id was empty ");
+            return false;
+        }
+
+        global $wpdb;
+        $table = $wpdb->prefix . self::$table_name;
+
+        require_once HLD_PLUGIN_PATH . 'vendor/autoload.php';
+        \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
+
+        try {
+            // Fetch subscription from Stripe
+            $stripe_subscription = \Stripe\Subscription::retrieve($subscription_id);
+
+            if (!$stripe_subscription) {
+                return false;
+            }
+
+            $status = $stripe_subscription->status;
+            $cancel_at_period_end = (int) $stripe_subscription->cancel_at_period_end;
+            $subscription_end = !empty($stripe_subscription->current_period_end)
+                ? (int) $stripe_subscription->current_period_end
+                : null;
+
+            // Update local DB
+            $wpdb->update(
+                $table,
+                [
+                    'subscription_status'   => $status,
+                    'cancel_at_period_end'  => $cancel_at_period_end,
+                    'subscription_end'      => $subscription_end,
+                ],
+                [
+                    'stripe_subscription_id' => $subscription_id,
+                ],
+                [
+                    '%s',
+                    '%d',
+                    '%d',
+                ],
+                [
+                    '%s',
+                ]
+            );
+
+            return true;
+        } catch (\Exception $e) {
+            error_log('Stripe Sync Error: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+
+
+
 
     /**
      * Get all orders for a given user
