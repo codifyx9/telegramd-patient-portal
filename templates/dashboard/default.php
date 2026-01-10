@@ -77,21 +77,21 @@
                          <?php
 
                             if (HLD_UserSubscriptions::has_any_subscription()) {
-                                hld_action_item(
-                                    "Doctor Chat",
-                                    "You’ll communicate with your doctor via chat. Once approved, your medication will be prescribed and shipped by our pharmacy.",
-                                    home_url('chat-app'),
-                                    "Start Chat"
-                                );
+                                // hld_action_item(
+                                //     "Doctor Chat",
+                                //     "You’ll communicate with your doctor via chat. Once approved, your medication will be prescribed and shipped by our pharmacy.",
+                                //     home_url('chat-app'),
+                                //     "Start Chat"
+                                // );
 
                             ?>
-                             <!-- <iframe
+                             <iframe
                                 id="chat-clinical"
                                 src="https://healsend.com/chat-app/"
                                 width="100%"
                                 height="1000"
                                 style="border: none;"
-                                loading="lazy"></iframe> -->
+                                loading="lazy"></iframe>
 
                          <?php } else {
                                 hld_not_found("Clinical chat will be activated once you purchase your first subscription.");

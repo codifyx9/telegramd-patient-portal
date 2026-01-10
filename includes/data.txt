@@ -161,9 +161,23 @@ Update the Messages on GHL
 worry about the OTP on Phone Later
 worry about email verification later
 
-
-
+user was facing difficulity to back 
+Enter your birthday label
+user was clicking on the options of optin screen we need not to show them like buttons
+forgot password issue 
+show password option in create an account 
+user was facing issues to find the prefunnel link vineeth issue
+there should be front and back of an ID but we are sending only one 
+user is filling out the data from the sidebar instead of sidebar  
+so side bar sould not on signature user was confused  
+clear signuature and upload signature button shyould be different color 
+egreess should be hidden 
++1 double  
 live200
+underscore in the status 
+Messages 
+if subscriptions renew card rejected we will not placd his next order
+Update High converting messages in GHL 
 
 
 
@@ -171,10 +185,29 @@ live200
 
 
 
+https://healsend.com/wp-content/uploads/2025/10/Terms-of-Service.pdf
+https://healsend.com/wp-content/uploads/2025/10/Privacy_Policy_US.pdf
 
+22. SMS, Email & Telephone Consumer Protection Act (TCPA) Consent
+22.1 Transactional Messages
+By providing a mobile number or email address, you consent to receive non-marketing
+communications about appointments, account activity, prescription status, and billing.
+These messages are necessary for service delivery and do not require separate opt-in.
+22.2 Marketing Communications
+Promotional SMS or emails are sent only with your explicit written consent. All
+marketing messages include clear unsubscribe options and are managed per the CANSPAM Act and TCPA 47 U.S.C. § 227.
+22.3 Opt-Out and Frequency
+You may reply “STOP” to any SMS to end messaging or use the unsubscribe link in
+emails. Healsend respects opt-outs within ten (10) business days. Typical frequency for
+non-marketing texts does not exceed four per transaction.
+22.4 Standard Carrier Charges
+Standard message and data rates may apply. Healsend is not liable for mobile carrier
+fees or delivery failures outside its control.
+22.5 Recordkeeping and Audit
+Consent records are retained for four (4) years as required by FCC regulations.
+Healsend may audit third-party SMS providers for compliance.
 
-
-
+Text Terms- SMS, Email & Telephone Consumer Protection Act (TCPA) Consent
 
 
 

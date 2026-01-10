@@ -21,7 +21,9 @@ class HLD_Discount
         ],
         "NAD+ Nasal Spray" => [
             "first_month" => 21,
-            "three_month" => 10
+            "three_month" => 10,
+            "coupon" => "NAD20OFF"
+
         ],
         "Sermorelin Injection" => [
             "first_month" => 21,
