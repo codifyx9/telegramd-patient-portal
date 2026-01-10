@@ -220,11 +220,15 @@
                 </div>
 
                 <div class="btns-wrap">
+
+                    <button id="signature-clear" class="btn btn-primary w-100" style="    background-color: #e7e7e7;
+    border-radius: 50px;
+    border: none;
+    color: black;">
+                        clear signature
+                    </button>
                     <button type="submit" class="btn btn-primary w-100" style="background-color: #7b68ee; border-radius: 50px; border: none;">
                         Upload Signature
-                    </button>
-                    <button id="signature-clear" class="btn btn-primary w-100" style="background-color: #7b68ee; border-radius: 50px; border: none;">
-                        clear signature
                     </button>
                 </div>
             </form>

@@ -38,7 +38,74 @@ function hld_render_custom_login_form()
                 <p class="hld_error"><?php echo esc_html($error_message); ?></p>
             <?php endif; ?>
 
-            <input type="password" name="hld_password" id="hld_password" placeholder="Password" style="margin-bottom: 5px;" required />
+            <!-- <input type="password" name="hld_password" id="hld_password" placeholder="Password" style="margin-bottom: 5px;" required /> -->
+
+            <style>
+                .hld_password_wrapper {
+                    position: relative;
+                    width: 100%;
+                    height: 65px;
+                }
+
+                .hld_password_wrapper input {
+                    width: 100%;
+                    padding-right: 40px;
+                    /* space for eye button */
+                }
+
+                .hld_toggle_password {
+                    position: absolute;
+                    right: 0px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 13px;
+                    opacity: 0.7;
+                    color: black !important;
+                }
+
+                .hld_toggle_password:hover,
+                .hld_toggle_password:focus {
+                    opacity: 1;
+                    background: transparent;
+                    color: black;
+                }
+            </style>
+            <div class="hld_password_wrapper">
+                <input
+                    type="password"
+                    name="hld_password"
+                    id="hld_password"
+                    placeholder="Password"
+                    style="margin-top: 0;"
+                    required />
+                <button
+                    type="button"
+                    class="hld_toggle_password"
+                    aria-label="Show password">
+                    Show
+                </button>
+            </div>
+            <script>
+                // Toggle password visibility
+                const toggleBtn = document.querySelector(".hld_toggle_password");
+                const passwordInput = document.getElementById("hld_password");
+
+                if (toggleBtn && passwordInput) {
+                    toggleBtn.addEventListener("click", function() {
+                        const isPassword = passwordInput.type === "password";
+
+                        passwordInput.type = isPassword ? "text" : "password";
+                        toggleBtn.textContent = isPassword ? "Hide" : "Show";
+                        toggleBtn.setAttribute(
+                            "aria-label",
+                            isPassword ? "Hide password" : "Show password"
+                        );
+                    });
+                }
+            </script>
 
             <!-- 🔗 Forgot Password Link -->
             <div class="hld_forgot_password">
