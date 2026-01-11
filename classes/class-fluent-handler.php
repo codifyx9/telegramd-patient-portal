@@ -374,17 +374,25 @@ if (! class_exists('hldFluentHandler')) {
         }
 
 
-        public function order_confirmation()
+        public function ghl_order_confirmation()
         {
-            error_log("function order_confirmation called");
+            error_log("function ghl_order_confirmation called");
             $GhlApiClient = new GhlApiClient(GHL_API_KEY);
+            // $data = [
+            //     "queryParams" => [
+            //         "o" => "o"
+            //     ]
+            // ];
             $data = [
                 "queryParams" => [
-                    "o" => "o"
+                    "email" => "faheemh127@gmail.com",
+                    "full_name" => "Faheem Hassan",
+                    "product_name" => "NAD+ Therapy",
+                    "product_price" => "$189/mon",
                 ]
             ];
             $GhlApiClient->sendToWebhook('https://services.leadconnectorhq.com/hooks/tqGhhCGePHa1hQkrrOQY/webhook-trigger/2a1c742c-ed0b-4819-ad91-f30cc959d008', $data);
-            error_log("order_confirmation webhook called");
+            error_log("ghl_order_confirmation webhook called");
         }
 
 
@@ -414,7 +422,7 @@ if (! class_exists('hldFluentHandler')) {
                 return $order_id;
             }
 
-            $this->order_confirmation();
+            $this->ghl_order_confirmation();
 
             if (is_user_logged_in()) {
                 HLD_UserSubscriptions::update_order_telegra_id($order_id, $this->stripe_subscription_id);

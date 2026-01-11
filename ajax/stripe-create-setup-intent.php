@@ -145,7 +145,7 @@ function my_create_payment_intent()
     $paymentIntent = \Stripe\PaymentIntent::create([
       'payment_method_types' => [$intent_for],
       'customer'             => $customer_id,
-      'amount'               => $price,
+      'amount'               => (int) round($price),
       'currency'             => HLD_CURRENCY,
       'amount_details'       => [
         'line_items' => [

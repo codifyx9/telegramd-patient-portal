@@ -16,7 +16,7 @@ if (! defined('ABSPATH')) {
 // dev/live controllers
 define('HLD_DEVELOPER_ENVIRONMENT', false);
 define('HLD_TELEGRA_AFFILIATE', false);
-define('HLD_PAUSE_GHL', true);
+define('HLD_PAUSE_GHL', true); 
 
 
 

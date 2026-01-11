@@ -685,8 +685,10 @@ class HLD_UserSubscriptions
             SELECT DISTINCT subscription_slug
             FROM {$table}
             WHERE patient_email = %s
+             AND subscription_status = %s
             ",
-                $patient_email
+                $patient_email,
+                'active'
             )
         );
 

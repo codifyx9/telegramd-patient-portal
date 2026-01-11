@@ -1,8 +1,15 @@
 <?php
-
 defined('ABSPATH') || exit;
 
+// page is not used by anything but this should be used becuase its better approach
 $page = $_GET['page'] ?? null;
+// Support ?payment-succeeded format
+if (!$page) {
+    foreach ($_GET as $key => $value) {
+        $page = $key;
+        break;
+    }
+}
 
 switch ($page) {
     case 'care-team':

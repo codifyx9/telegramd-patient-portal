@@ -43,6 +43,11 @@ class HLD_Discount
             "three_month" => 6,
             "coupon" => "PT1STCOUNT"
         ],
+        "PT-141 Nasal Spray" => [
+            "first_month" => 8,
+            "three_month" => 6,
+            "coupon" => "PTWEL20"
+        ],
         "Tirzepatide drops" => [
             "first_month" => 18,
             "three_month" => 11
