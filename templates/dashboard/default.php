@@ -152,27 +152,27 @@
 
                          <?php
                             if (HLD_UserSubscriptions::has_any_subscription()) {
-                                hld_action_item(
-                                    "Support Chat",
-                                    "You’ll communicate with support via chat.",
-                                    home_url('chat-app'),
-                                    "Start Chat"
-                                );
+                                // hld_action_item(
+                                //     "Support Chat",
+                                //     "You’ll communicate with support via chat.",
+                                //     home_url('chat-app'),
+                                //     "Start Chat"
+                                // );
 
-                                hld_action_item(
-                                    "Billing Chat",
-                                    "You’ll communicate with billing team via chat.",
-                                    home_url('chat-app'),
-                                    "Start Chat"
-                                );
+                                // hld_action_item(
+                                //     "Billing Chat",
+                                //     "You’ll communicate with billing team via chat.",
+                                //     home_url('chat-app'),
+                                //     "Start Chat"
+                                // );
                             ?>
-                             <!-- <iframe
+                             <iframe
                                 id="chat-support"
                                 src="https://healsend.com/chat-app/"
                                 width="100%"
                                 height="1000"
                                 style="border: none;"
-                                loading="lazy"></iframe> -->
+                                loading="lazy"></iframe>
 
                          <?php } else {
                                 hld_not_found("Support will be available once you purchase your first subscription.");

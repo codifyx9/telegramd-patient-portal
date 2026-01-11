@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) {
 }
 
 // dev/live controllers
-define('HLD_DEVELOPER_ENVIRONMENT', true);
+define('HLD_DEVELOPER_ENVIRONMENT', false);
 define('HLD_TELEGRA_AFFILIATE', false);
 define('HLD_PAUSE_GHL', true);
 
@@ -34,7 +34,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 foreach (glob(plugin_dir_path(__FILE__) . 'helper/*.php') as $file) {
     require_once $file;
 }
-
+require_once plugin_dir_path(__FILE__) . 'includes/api-keys.php';
+require_once plugin_dir_path(__FILE__) . 'classes/class-hld-settings.php';
 require_once plugin_dir_path(__FILE__) . 'includes/functions.php';
 require_once plugin_dir_path(__FILE__) . 'classes/class-discount.php';
 require_once plugin_dir_path(__FILE__) . 'includes/hooks.php';
@@ -45,10 +46,8 @@ require_once plugin_dir_path(__FILE__) . 'classes/class-telegra-order.php';
 require_once plugin_dir_path(__FILE__) . 'ajax/stripe-payment-methods.php';
 require_once plugin_dir_path(__FILE__) . 'ajax/stripe-create-setup-intent.php';
 require_once plugin_dir_path(__FILE__) . 'ajax/stripe-charge-now.php';
-require_once plugin_dir_path(__FILE__) . 'includes/api-keys.php';
 require_once plugin_dir_path(__FILE__) . 'includes/funnel-navbar.php';
 require_once plugin_dir_path(__FILE__) . 'includes/funnel-footer.php';
-require_once plugin_dir_path(__FILE__) . 'classes/class-hld-settings.php';
 require_once plugin_dir_path(__FILE__) . 'classes/class-subscriptions.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-hld-user-notifications.php';
 require_once plugin_dir_path(__FILE__) . 'classes/class-payments.php';

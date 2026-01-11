@@ -208,10 +208,11 @@ Consent records are retained for four (4) years as required by FCC regulations.
 Healsend may audit third-party SMS providers for compliance.
 
 Text Terms- SMS, Email & Telephone Consumer Protection Act (TCPA) Consent
-
-
-
-
+Refund in prefunnel hide 
+It should back to that prefunnel  when click on sign in 
+google and apple pay  
+Klarna issue 
+client make purchae with klarna  and our system says you already have make the purchase
 
 
 
