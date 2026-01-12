@@ -9,7 +9,6 @@ class HldFluentFormHandler {
     this.removeOptinLabelBorder();
     this.insertDisqualifyContent();
     // this.initPackages();
-
   }
 
   resetCheckBoxes() {
@@ -103,7 +102,6 @@ class HldFluentFormHandler {
           }, 8000);
 
         function executeLastStepCode() {
-
           hldFormHandler.getAmount();
           hldFormHandler.setStripeData();
           stripeHandler.if_klarna_afterpay_redirect();
@@ -317,6 +315,13 @@ class HldFluentFormHandler {
   insertDisqualifyContent() {
     const wrappers = document.querySelectorAll(".hld_disqualify_wrapper");
 
+    // Check if hld_form_wrap exists anywhere in the DOM
+    const hasFormWrap = document.querySelector(".hld_form_wrap") !== null;
+
+    const refundButtonHtml = hasFormWrap
+      ? ""
+      : `<button type="button" class="hld_disqualify_btn hldRequestRefund">Request Refund</button>`;
+
     const htmlContent = `
     <h1 class="hld_disqualify_title">Program Eligibility</h1>
     <p class="hld_disqualify_description">
@@ -324,7 +329,7 @@ class HldFluentFormHandler {
       We truly appreciate your interest, and we encourage you to check back in the future as eligibility criteria may change.
     </p>
     <a class="hld_disqualify_btn" href="https://healsend.com/">Return to Homepage</a>
-    <button type="button" class="hld_disqualify_btn hldRequestRefund">Request Refund</button>
+    ${refundButtonHtml}
   `;
 
     wrappers.forEach((wrapper) => {
@@ -332,45 +337,6 @@ class HldFluentFormHandler {
     });
   }
 
-  // setStripeData() {
-  //   const dropdown2 = document.querySelector('[name="dropdown_4"]');
-  //   const dropdown3 = document.querySelector('[name="dropdown_3"]');
-
-  //   const medication = dropdown2 ? dropdown2.value : null;
-  //   const value3 = dropdown3 ? dropdown3.value : null;
-
-  //   console.log("Function setStripeData");
-  //   console.log("dropdown_2 selected value:", medication);
-  //   console.log("dropdown_3 selected value:", value3);
-
-  //   // ✅ Set medication text to the div
-  //   const summaryDiv = document.getElementById("hldSummaryMedication");
-  //   if (summaryDiv) {
-  //     summaryDiv.textContent = medication
-  //       ? medication
-  //       : "No medication selected";
-  //   }
-
-  //   // ✅ Set package duration and update window.stripeHandler.packageDuration
-  //   const durationDiv = document.getElementById("hldSummaryPackageDuration");
-  //   if (durationDiv) {
-  //     if (value3 === "Monthly") {
-  //       durationDiv.textContent = "1 Month";
-  //       window.stripeHandler.packageDuration = 1;
-  //     } else if (value3 === "3-Month") {
-  //       durationDiv.textContent = "3 Months";
-  //       window.stripeHandler.packageDuration = 3;
-  //     } else if (value3 === "6-Month") {
-  //       durationDiv.textContent = "6 Months";
-  //       window.stripeHandler.packageDuration = 6;
-  //     } else {
-  //       durationDiv.textContent = "No plan selected";
-  //       window.stripeHandler.packageDuration = 1; // fallback default
-  //     }
-  //   } else {
-  //     console.log("Duration div not found");
-  //   }
-  // }
   getSelectedMedication() {
     const dropdown2 = document.querySelector('[name="dropdown_4"]');
     const medication =
@@ -488,15 +454,6 @@ class HldFluentFormHandler {
     }
   }
 
-  // blurOrigionalPrice() {
-  //   const elem = document.getElementById("hldSummaryTotalToday");
-
-  //   if (elem) {
-  //     elem.classList.add("hld-line-through");
-  //   } else {
-  //     console.error("Element with ID 'hldSummaryTotalToday' not found.");
-  //   }
-  // }
   removeOptinLabelBorder() {
     // Find all elements with the class "optin_cb_container"
     const containers = document.querySelectorAll(".optin_cb_container");
@@ -512,59 +469,6 @@ class HldFluentFormHandler {
       }
     });
   }
-
-  // getAmount() {
-  //   const dropdown2 = document.querySelector('[name="dropdown_4"]');
-  //   const dropdown3 = document.querySelector('[name="dropdown_3"]');
-
-  //   const medication = dropdown2 ? dropdown2.value : null;
-  //   const value3 = dropdown3 ? dropdown3.value : null;
-  //   console.log("getAmount");
-  //   console.log("Selected medication:", medication);
-  //   console.log("Selected plan:", value3);
-
-  //   let duration = 1; // default
-  //   if (value3 === "Monthly") {
-  //     duration = 1;
-  //   } else if (value3 === "3-Month") {
-  //     duration = 3;
-  //   } else if (value3 === "6-Month") {
-  //     duration = 6;
-  //   }
-
-  //   // ✅ Update window.stripeHandler.packageDuration
-  //   window.stripeHandler.packageDuration = duration;
-
-  //   let selectedPrice = 0;
-
-  //   // ✅ Find medication in fluentFormData
-  //   if (medication && fluentFormData.medications) {
-  //     const med = fluentFormData.medications.find((m) =>
-  //       m.medication_name.toLowerCase().includes(medication.toLowerCase())
-  //     );
-  //     if (med) {
-  //       const pkg = med.packages.find(
-  //         (p) => parseInt(p.monthly_duration, 10) === duration
-  //       );
-
-  //       if (pkg) {
-  //         selectedPrice = parseInt(pkg.monthly_price, 10);
-
-  //         // ✅ Set window.stripeHandler.priceId
-  //         window.stripeHandler.stripePriceId = pkg.stripe_price_id;
-
-  //         // ✅ Update UI
-  //         const todayDiv = document.getElementById("hldSummaryTotalToday");
-  //         if (todayDiv) {
-  //           todayDiv.textContent = selectedPrice;
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   console.log("Amount to charge today:", selectedPrice);
-  //   return selectedPrice;
-  // }
 
   async getAmount() {
     const dropdown2 = document.querySelector('[name="dropdown_4"]');
@@ -821,13 +725,3 @@ class HldFluentFormHandler {
 }
 
 var hldFormHandler = new HldFluentFormHandler();
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   setTimeout(() => hldNavigation.toggleLoader(false), 3000);
-//   // setTimeout(() => {
-//   //   if (typeof hldFormHandler !== "undefined") {
-//   //     hldFormHandler.getAmount();
-//   //     hldFormHandler.setStripeData();
-//   //   }
-//   // }, 6000); // 5000ms = 5 seconds
-// });

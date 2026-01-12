@@ -12,7 +12,8 @@ Do any other plans, such as Metabolic or PT-141, include follow-up questionnaire
 -- renew the order for one month and 3 months
 -- GLP-1 Follow-Up form after 56 days
 -- how to pause order
-
+-- Test renewal subscription 
+-- for 3 month automatically place next order
 
 
 
@@ -125,7 +126,7 @@ Do any other plans, such as Metabolic or PT-141, include follow-up questionnaire
 -- submit questionnaire wala button should be hover bg color need to be fixed
 -- box biggewr for longer text
 -- add order failed callback now if order failed and user will be paid the payment now there is a way to return payment
-
+-- we need to add dev and live mode both options enable so when we enable so if we enable dev mode live customers should see maintenance mode
 
 //************** Abubakar Zone***********//
 -- people wo do not complete their prefunnel for send email after couple of 15 minutes
@@ -178,8 +179,7 @@ underscore in the status
 Messages 
 if subscriptions renew card rejected we will not placd his next order
 Update High converting messages in GHL 
-
-
+customer was again filling the address which was not required and we should sent different address for that 
 
 
 
@@ -209,13 +209,18 @@ Healsend may audit third-party SMS providers for compliance.
 
 Text Terms- SMS, Email & Telephone Consumer Protection Act (TCPA) Consent
 Refund in prefunnel hide 
-It should back to that prefunnel  when click on sign in 
+It should back to that prefunnel when click on sign in 
 google and apple pay  
-Klarna issue 
-client make purchae with klarna  and our system says you already have make the purchase
+
+
+buttons issues 
 
 
 
+on thankyou page there should not be any sidebar issue 
+
+price 3month 1 month klarna badge
+Remember password option
 
 
 

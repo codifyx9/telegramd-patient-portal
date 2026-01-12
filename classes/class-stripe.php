@@ -139,7 +139,7 @@ class HLD_Stripe
     }
 
 
-   
+
 
     public static function get_subscription_details($subscription_id)
     {
@@ -490,14 +490,37 @@ class HLD_Stripe
             if (!empty($existing->data)) {
                 $customer = $existing->data[0]; // found existing customer
             } else {
+
+
+
                 // ❌ Not found — create a new customer
-                $customer = $stripe->customers->create([
+                $customer_data = [
                     'email' => $email,
                     'name'  => trim("$first_name $last_name"),
                     'metadata' => [
                         'source' => 'Healsend',
                     ],
-                ]);
+                ];
+
+
+                // ✅ Attach Test Clock ONLY in test mode
+                if (
+                    defined('HLD_INCLUDE_STRIPE_CLOCK_ID')
+                    && HLD_INCLUDE_STRIPE_CLOCK_ID === true
+                    && defined('STRIPE_CLOCK_ID')
+                    && str_starts_with(STRIPE_SECRET_KEY, 'sk_test_')
+                ) {
+                    $customer_data['test_clock'] = STRIPE_CLOCK_ID;
+                }
+                $customer = $stripe->customers->create($customer_data);
+
+                // $customer = $stripe->customers->create([
+                //     'email' => $email,
+                //     'name'  => trim("$first_name $last_name"),
+                //     'metadata' => [
+                //         'source' => 'Healsend',
+                //     ],
+                // ]);
             }
 
             // Safety check

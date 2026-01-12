@@ -11,6 +11,7 @@ if (! class_exists('hldShortcode')) {
         {
             add_shortcode('healsend_form', [$this, 'healsend_form_shortcode']);
             add_shortcode('get_started', [$this, 'get_started']);
+            add_shortcode('hld_signin_link', [$this, 'handle_hld_signin_link']);
         }
 
         public function get_started()
@@ -23,6 +24,23 @@ if (! class_exists('hldShortcode')) {
             return ob_get_clean();
         }
 
+
+        public function handle_hld_signin_link($atts)
+        {
+            // Extract shortcode attributes, default redirect is empty
+            $atts = shortcode_atts([
+                'redirect' => '',
+            ], $atts, 'hld_signin_link');
+
+            // Build the URL
+            $url = home_url('/patient-login');
+            if (!empty($atts['redirect'])) {
+                $url = add_query_arg('redirect', sanitize_title($atts['redirect']), $url);
+            }
+
+            // Output HTML
+            return '<p style="text-align: center;">Already have an account? <a href="' . esc_url($url) . '">Sign In</a></p>';
+        }
         /**
          * Shortcode handler
          * Usage: [healsend_form id="21" payment="later" medications='[...]']

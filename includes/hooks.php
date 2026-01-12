@@ -96,8 +96,18 @@ function hld_handle_custom_login()
 
 
 
-                // clean redirect (allowed in init)
-                wp_safe_redirect(home_url('/my-account'));
+                // // clean redirect (allowed in init)
+                // wp_safe_redirect(home_url('/my-account'));
+
+
+                // REPLACE the redirect block with this:
+                if (isset($_GET['redirect']) && !empty($_GET['redirect'])) {
+                    wp_safe_redirect(home_url('/' . sanitize_title(wp_unslash($_GET['redirect']))));
+                } else {
+                    wp_safe_redirect(home_url('/my-account'));
+                }
+
+
                 exit;
             } else {
                 wp_logout();
@@ -400,3 +410,4 @@ add_filter('use_block_editor_for_post_type', function ($use_block_editor, $post_
     }
     return $use_block_editor;
 }, 10, 2);
+

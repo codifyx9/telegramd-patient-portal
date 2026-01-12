@@ -14,9 +14,17 @@ if (! defined('ABSPATH')) {
 }
 
 // dev/live controllers
-define('HLD_DEVELOPER_ENVIRONMENT', false);
+define('HLD_DEVELOPER_ENVIRONMENT', true);
 define('HLD_TELEGRA_AFFILIATE', false);
-define('HLD_PAUSE_GHL', true); 
+define('HLD_PAUSE_GHL', true);
+
+// these constants are to simulate the subscription in test mode.
+define('HLD_INCLUDE_STRIPE_CLOCK_ID', true);
+define("STRIPE_CLOCK_ID", "clock_1Soi6bAcgi1hKyLW6NhjomFx");
+
+// Controllers Ends
+
+
 
 
 
@@ -25,10 +33,8 @@ define('HLD_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('HLD_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 
-
-
-
 require_once plugin_dir_path(__FILE__) . 'includes/constants.php';
+
 
 require_once __DIR__ . '/vendor/autoload.php';
 foreach (glob(plugin_dir_path(__FILE__) . 'helper/*.php') as $file) {
