@@ -801,7 +801,7 @@ ul.benefits li {
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
     rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.1) 0px 8px 10px;
-  padding: 30px;
+  /*padding: 30px;*/
   border-radius: 10px;
 }
 
@@ -833,8 +833,8 @@ ul.benefits li {
   left: 0;
   width: 100%;
   border-radius: 0;
-  padding: 7px 12px;
-  font-size: 0.9rem;
+  padding: 2px 0px;
+  font-size: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1097,7 +1097,7 @@ HEALSEND STEPS
 
 .hld-section-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .hld-section-header h2 {
@@ -2268,13 +2268,13 @@ IMAGE SLIDER SECTION
 .hld-image-card__images {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  /*gap: 8px;*/
   padding: 12px;
 }
 
 .hld-image-card__image {
   position: relative;
-  height: 320px;
+  /*height: 320px;*/
   /*border-radius: 14px;*/
   overflow: hidden;
   background: #f3f4f6;
@@ -2360,7 +2360,19 @@ IMAGE SLIDER SECTION
   width: fit-content;
   margin: auto;
 }
-
+/*-------------14/01 CSS---------------*/
+.remedy-logo-wrap img.custom-logo {
+    height: auto;
+    width: 197px;
+}
+p.remedy-sub-desc {
+    margin-top: 10px;
+}
+svg.lucide.lucide-shield-plus {
+    height: 12px;
+    width: 12px;
+}
+/*-----------endd-------------------*/
 /* Responsive */
 @media (max-width: 768px) {
   .hld-image-card {
@@ -2436,6 +2448,7 @@ IMAGE SLIDER SECTION
     grid-template-columns: 1fr;
   }
 }
+
 
 /* HEALSEND steps ends */
 /* =========================
