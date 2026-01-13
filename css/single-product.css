@@ -803,6 +803,8 @@ ul.benefits li {
     rgba(0, 0, 0, 0.1) 0px 8px 10px;
   /*padding: 30px;*/
   border-radius: 10px;
+  max-width:1200px;
+  margin:0 auto;
 }
 
 /* Card */
@@ -811,6 +813,7 @@ ul.benefits li {
   border-radius: 10px;
   box-shadow: var(--hld-shadow-card);
   padding: 24px;
+  padding-bottom:0px;
   position: relative;
   overflow: hidden;
 }
@@ -845,7 +848,7 @@ ul.benefits li {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 24px;
+  margin-top:16px !important;
 }
 .hld-remedy-content {
   margin-top: 30px;
@@ -865,6 +868,7 @@ ul.benefits li {
 
 .hld-card-text {
   flex: 1;
+  max-width:340px;
 }
 
 .hld-card-text h3 {
@@ -898,7 +902,7 @@ ul.benefits li {
 
 /* Media */
 .hld-card-media img {
-  max-width: 140px;
+  max-width: 181px;
   width: 100%;
   height: auto;
   display: block;
@@ -910,7 +914,8 @@ ul.benefits li {
   position: absolute;
   bottom: 0;
   right: 0;
-  max-width: 150px;
+  max-width: 181px;
+  top: 10px;
 }
 
 /* CTA */
@@ -920,15 +925,17 @@ ul.benefits li {
 }
 
 .hld-cta-button {
-  display: inline-block;
-  background: var(--primary);
-  color: var(--hld-white);
-  padding: 16px 40px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+    width: 100%;
+    max-width: 1200px;
+    background: var(--primary);
+    color: var(--hld-white);
+    padding: 16px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hld-cta-button:hover {
@@ -1091,8 +1098,9 @@ HEALSEND STEPS
 }
 
 .hld-container {
-  max-width: var(--sec-max-width);
-  margin: 0 auto;
+    max-width: 1248px;
+    margin: 0 auto;
+    background-color: #ffffff;
 }
 
 .hld-section-header {
