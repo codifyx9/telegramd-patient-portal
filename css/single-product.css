@@ -37,8 +37,8 @@
   gap: 30px;
 }
 .hld-product .section-inner {
-  max-width: 1440px;
-  margin: auto;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 .hld-product .img-wrap {
   width: 60%;
@@ -53,10 +53,10 @@
   display: none;
 }
 .hld-product .img-wrap img {
-  display: block;
-  margin: auto;
-  max-height: 700px;
-  width: auto;
+    display: block;
+    margin: 0 auto;
+    max-height: 700px;
+    width: fit-content;
 }
 .hld-product .product-detail-wrap h1 {
   font-weight: bold;
@@ -163,9 +163,9 @@ article.product-card {
   background-color: var(--hld-color-primary);
 }
 .tab-button.active {
-  background: var(--active-bg);
-  color: var(--hld-black);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    background: var(--active-bg);
+    color: var(--hld-black) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 /* Content */
@@ -229,10 +229,21 @@ ul.benefits li {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
+/*.hld-faq-question:hover,*/
+/*.hld-faq-question:focus {*/
+/*  background-color: initial;*/
+/*  color: black;*/
+/*}*/
+
 .hld-faq-question:hover,
 .hld-faq-question:focus {
   background-color: initial;
-  color: black;
+}
+
+/* lock title color */
+.hld-faq-question:hover .hld-faq-title,
+.hld-faq-question:focus .hld-faq-title {
+  color: var(--hld-black);
 }
 
 .hld-faq-question {
@@ -285,7 +296,7 @@ ul.benefits li {
 }
 
 .hld-faq-item.is-open .hld-faq-icon {
-  content: "×";
+  content: "Ã—";
 }
 
 /* Our Process our-process.php */
@@ -414,7 +425,7 @@ ul.benefits li {
 }
 
 .section-faq .hld-faq-question {
-  padding: 3.5rem;
+  padding: 20px;
 }
 .section-faq .hld-faq-title {
   font-size: 1.5rem;
@@ -507,8 +518,8 @@ ul.benefits li {
 ====================*/
 
 .hld-reviews {
-  background: var(--hld-white);
-  padding: 80px 16px 110px 16px;
+    background: var(--hld-white);
+    padding: 80px 16px 70px 16px;
 }
 
 .hld-reviews__container {
@@ -537,12 +548,12 @@ ul.benefits li {
 }
 
 .hld-review-card {
-  flex: 0 0 calc(33.333% - 16px);
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 4rem 28px;
-  box-shadow: var(--hld-shadow-card);
-  text-align: center;
+    flex: 0 0 calc(33.333% - 16px);
+    background: #33333317;
+    border-radius: 20px;
+    padding: 24px 28px;
+    box-shadow: var(--hld-shadow-card);
+    text-align: center;
 }
 
 .hld-stars {
@@ -550,12 +561,12 @@ ul.benefits li {
   font-size: 22px;
   margin-bottom: 16px;
 }
-
 .hld-review-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--hld-black);
-  margin-bottom: 24px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--hld-black);
+    margin-bottom: 24px;
+    height: 70px;
 }
 
 .hld-review-name {
@@ -655,7 +666,7 @@ ul.benefits li {
 }
 
 .hld-glp__features li::before {
-  content: "✓";
+  content: "âœ“";
   position: absolute;
   left: 0;
   color: var(--primary);
@@ -878,7 +889,7 @@ ul.benefits li {
 }
 
 .hld-card-text li::before {
-  content: "✓";
+  content: "âœ“";
   position: absolute;
   left: 0;
   color: var(--primary);
@@ -1182,7 +1193,7 @@ Hero section
 }
 
 .hld-hero__container {
-  max-width: var(--sec-max-width);
+  max-width: 1300px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -2014,7 +2025,7 @@ IMAGE SECTION
   color: var(--primary) !important;
 }
 
-/* 📱 Mobile Optimization */
+/* ðŸ“± Mobile Optimization */
 @media (max-width: 480px) {
   .hld-plan-item {
     flex-direction: row;
@@ -2201,9 +2212,9 @@ NEW PRODUCT CARD CSS SECTION
 IMAGE SLIDER SECTION
 ===================== */
 .hld-image-slider {
-  background: var(--hld-white);
-  padding: 80px 16px;
-  font-family: var(--font-poppins);
+    background: var(--hld-white);
+    padding: 10px 16px;
+    
 }
 
 .hld-image-slider__container {
@@ -2264,7 +2275,7 @@ IMAGE SLIDER SECTION
 .hld-image-card__image {
   position: relative;
   height: 320px;
-  border-radius: 14px;
+  /*border-radius: 14px;*/
   overflow: hidden;
   background: #f3f4f6;
 }
