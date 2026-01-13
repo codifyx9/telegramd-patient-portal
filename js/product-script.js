@@ -382,3 +382,17 @@ class HLDProduct {
 document.addEventListener("DOMContentLoaded", () => {
   new HLDProduct();
 });
+
+
+/*-------------------- Custom Script [13-01-2025] : Start ----------*/
+
+const track = document.querySelector('.hld-image-slider__track');
+  const cards = Array.from(track.children);
+
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
+  
+ /*-------------------- Custom Script [13-01-2025] : End ----------*/
