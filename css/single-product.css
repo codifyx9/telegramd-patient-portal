@@ -74,9 +74,9 @@
   box-shadow: var(--hld-shadow-card);
 }
 .section-product .price-wrap {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 8px 20px;
 }
 .pricing-wrap .tag {
   background: var(--hld-color-primary);
@@ -107,6 +107,9 @@
   text-decoration: none;
   padding: 10px;
 }
+span.discount-first-month {
+    color: #000 !important;
+}
 .discount-first-month {
   font-size: 2.3rem;
   font-weight: bold;
@@ -131,7 +134,7 @@
 article.product-card {
   background: var(--card-bg);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 20px;
   box-shadow: var(--hld-shadow-card);
   display: flex;
   flex-direction: column;
@@ -144,7 +147,7 @@ article.product-card {
   padding: 4px;
   display: flex;
   gap: 4px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 12px;
 }
 
 .tab-button {
@@ -187,7 +190,7 @@ ul.benefits li {
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
-  padding: 0.6rem 0;
+  padding: 2px 0;
   font-size: 0.95rem;
 }
 
@@ -519,7 +522,7 @@ ul.benefits li {
 
 .hld-reviews {
     background: var(--hld-white);
-    padding: 80px 16px 70px 16px;
+    padding: 30px 16px 70px 16px;
 }
 
 .hld-reviews__container {
@@ -529,11 +532,13 @@ ul.benefits li {
 }
 
 .hld-reviews__title {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 48px;
-  color: var(--hld-black);
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 0px !important;
+    color: var(--hld-black);
+    width: 556px;
+    margin: 0 auto;
 }
 
 .hld-reviews__slider-wrapper {
@@ -546,14 +551,23 @@ ul.benefits li {
   transition: transform 0.5s ease;
   padding: 30px 0;
 }
+.hld-reviews__title {
+    color: #6d6ffc;
+}
+
+.hld-reviews__title::first-line {
+    color: #000;
+}
+button.hld-new-arrow.hld-new-arrow--right, button.hld-new-arrow.hld-new-arrow--left {
+    color: #ffffff !important;
+}
 
 .hld-review-card {
     flex: 0 0 calc(33.333% - 16px);
-    background: #33333317;
     border-radius: 20px;
     padding: 24px 28px;
-    box-shadow: var(--hld-shadow-card);
     text-align: center;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.22);
 }
 
 .hld-stars {
@@ -632,14 +646,32 @@ ul.benefits li {
   font-size: 36px;
   font-weight: 700 !important;
   color: var(--hld-color-primary);
-  margin-bottom: 8px;
+  
   font-family: var(--hld-font-primary);
 }
 
 .hld-glp__price {
   font-size: 22px;
-  margin-bottom: 24px;
+  
   color: var(--hld-black);
+}
+a.hld-glp__btn.hld-glp__btn--primary:hover{
+     background: #0056b3 !important;
+    transition: 0.5s !important;
+}
+a.hld-glp__btn.hld-glp__btn--primary {
+    width: 32%;}
+a.hld-glp__btn.hld-glp__btn--primary::before {
+    content: "";
+    position: relative;
+    top: 0;
+   
+    width: 8%;
+    height: 100%;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
+    animation: shimmerMove 2.5s linear infinite;
+    pointer-events: none;
+   
 }
 
 .hld-glp__price strong {
@@ -659,14 +691,14 @@ ul.benefits li {
 
 .hld-glp__features li {
   position: relative;
-  padding-left: 28px;
-  margin-bottom: 14px;
+  
+  margin-bottom: 6px;
   font-size: 16px;
   color: var(--hld-black);
 }
 
 .hld-glp__features li::before {
-  content: "âœ“";
+  content: ;
   position: absolute;
   left: 0;
   color: var(--primary);
@@ -678,9 +710,9 @@ ul.benefits li {
   gap: 16px;
   margin-bottom: 32px;
 }
-.hld-glp__actions a.hld-glp__btn--primary:hover {
+/*.hld-glp__actions a.hld-glp__btn--primary:hover {
   color: white;
-}
+}*/
 .hld-glp__btn--outline:hover {
   color: black !important;
 }
@@ -769,7 +801,7 @@ ul.benefits li {
 
 .hld-benefits-section {
   background: var(--hld-bg-gray);
-  padding: 64px 16px;
+  padding: 20px 16px;
 }
 
 .hld-container {
@@ -893,7 +925,7 @@ ul.benefits li {
 }
 
 .hld-card-text li::before {
-  content: "âœ“";
+  content: "";
   position: absolute;
   left: 0;
   color: var(--primary);
@@ -920,7 +952,7 @@ ul.benefits li {
 
 /* CTA */
 .hld-cta-wrap {
-  margin-top: 48px;
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -965,6 +997,10 @@ ul.benefits li {
   .hld-benefits-section {
     padding: 48px 12px;
   }
+  .hld-card-content {
+    
+    gap: 0;
+}
 
   .hld-card {
     padding: 20px;
@@ -981,10 +1017,9 @@ ul.benefits li {
   BENEFITS
 ===================*/
 .hld-glp-slider-section {
-  padding: 64px 16px;
-  background: var(--hld-white);
+    padding: 64px 10px 20px 16px;
+    background: var(--hld-white);
 }
-
 .hld-slider-header h2 {
   font-size: clamp(1.6rem, 2.5vw, 2.2rem);
   font-weight: 600;
@@ -1101,6 +1136,7 @@ HEALSEND STEPS
     max-width: 1248px;
     margin: 0 auto;
     background-color: #ffffff;
+    padding: 30px;
 }
 
 .hld-section-header {
@@ -1222,8 +1258,8 @@ Hero section
 .hld-hero__title {
   font-size: clamp(2.4rem, 4vw, 3.5rem);
   line-height: 1.15;
-  font-weight: 800;
-  margin-bottom: 2rem;
+  font-weight: 700;
+  max-width:524px !important;
   text-align: left;
   margin-top: 0;
   padding-top: 0;
@@ -1311,10 +1347,14 @@ Hero section
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
   border: 1px solid white;
 }
+a.hld-btn-primary.hld-hero-btn-get-started {
+    width: 100% !important;
+}
 
 .get_started_btn_wrap {
-  max-width: var(--sec-max-width);
-  margin: auto;
+    max-width: 440px;
+    margin-left: 78px;
+   
 }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
@@ -1355,7 +1395,7 @@ Popup Section
 
 /* ===== SECTION ===== */
 .hld-lab-section {
-  padding: 7rem 3.5rem;
+  padding: 4rem 3.5rem;
   border-radius: 2rem;
   margin: 4rem auto;
   max-width: var(--sec-max-width);
@@ -1670,7 +1710,7 @@ Performance Section
 ==================== */
 
 .hld-performance-section {
-  padding: 80px 16px;
+  padding: 0px 16px;
   background-color: var(--hld-white);
 }
 
@@ -1751,6 +1791,7 @@ RELATED PRODUCTS
   margin-bottom: 24px;
 }
 
+
 .hld-related-title {
   font-size: 18px;
   font-weight: 600;
@@ -1767,7 +1808,7 @@ RELATED PRODUCTS
   background: var(--hld-white);
   border-radius: 20px;
   box-shadow: var(--hld-shadow-card);
-  padding: 24px;
+  padding: 10px;
   transition: 0.3s all ease-in-out;
 }
 .hld-related-item:hover {
@@ -1802,8 +1843,8 @@ ROOTED SECTION IN SCIENCE
 
 /* Section wrapper */
 .hld-feature-benefits-section {
-  background-color: var(--hld-bg-gray);
-  padding: 80px 24px;
+    background-color: var(--hld-bg-gray);
+    padding: 80px 24px 20px 24px;
 }
 
 /* Inner max-width container */
@@ -1816,7 +1857,7 @@ ROOTED SECTION IN SCIENCE
 /* Header */
 .hld-feature-benefits-header {
   max-width: 720px;
-  margin: 0 auto 64px;
+  margin: 0 auto 40px;
 }
 
 .hld-feature-benefits-eyebrow-text {
@@ -1832,7 +1873,7 @@ ROOTED SECTION IN SCIENCE
   font-size: 3rem;
   line-height: 1.2;
   color: var(--hld-black);
-  margin-bottom: 16px;
+  margin-bottom: 12px !important;
   font-weight: bold;
   font-family: var(--font-poppins);
 }
@@ -1958,7 +1999,7 @@ IMAGE SECTION
 
 .hld-pricing-section {
   font-family: var(--font-poppins);
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .hld-pricing-container {
@@ -2055,6 +2096,9 @@ NEW PRODUCT CARD CSS SECTION
   padding: 80px 16px;
   font-family: var(--font-poppins);
 }
+.benefits-slider-btns-wrap button.hld-slider-btn.hld-prev, button.hld-slider-btn.hld-next {
+    color: #ffffff !important;
+}
 
 .hld-new-products__container {
   max-width: var(--sec-max-width);
@@ -2081,6 +2125,7 @@ NEW PRODUCT CARD CSS SECTION
   margin-top: 12px;
   font-size: 1.05rem;
 }
+
 
 /* Slider */
 .hld-new-products__slider-wrapper {
@@ -2212,6 +2257,19 @@ NEW PRODUCT CARD CSS SECTION
   .hld-new-card {
     flex: 0 0 100%;
   }
+  .hld-new-products__header{
+      margin-bottom:0;
+  }
+  .hld-new-products {
+   
+    padding: 0px 16px;
+    
+}
+  .get_started_btn_wrap {
+    max-width: 440px;
+    margin-left: 0px;
+   
+}
 }
 
 /* NEW PRODUCT CARD CSS SECTION ENDS */
@@ -2232,13 +2290,14 @@ IMAGE SLIDER SECTION
 
 .hld-image-slider__header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 16px;
 }
 
 .hld-image-slider__title {
   font-size: 36px;
   font-weight: 700;
   color: var(--hld-black);
+  margin-bottom:12px !important;
 }
 
 .hld-image-slider__title span {
@@ -2472,6 +2531,12 @@ svg.lucide.lucide-shield-plus {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  .hld-container{
+      padding:10px;
+  }
+  .hld-performance-header {
+    margin: 0 auto 20px;
+}
 
   .hld-card {
     padding: 20px;
@@ -2492,6 +2557,7 @@ svg.lucide.lucide-shield-plus {
   .hld-reviews__title {
     font-size: 26px;
     margin-bottom: 0;
+    max-width:100%;
   }
   .hld-product .product-wrap {
     flex-direction: column-reverse;
@@ -2532,8 +2598,11 @@ svg.lucide.lucide-shield-plus {
     font-size: 1rem;
   }
   .hld-hero__title {
-    text-align: center;
-  }
+    max-width: 280px !important;
+}
+a.hld-glp__btn.hld-glp__btn--primary {
+    width: 100%;
+}
   .hld-hero__title {
     text-align: center;
     margin-bottom: 0;
@@ -2555,13 +2624,14 @@ svg.lucide.lucide-shield-plus {
     gap: 0rem;
     flex-direction: column-reverse;
   }
-  .get_started_btn_wrap a {
-    width: 100%;
-  }
+  a.hld-btn-primary.hld-hero-btn-get-started {
+    width: 100% !important;
+}
   .hld-lab-section {
     max-width: calc(100vw - 20px);
-    padding: 5rem 1rem;
+    padding: 2rem 1rem;
     border-radius: 1rem;
+    margin: 0 auto;
   }
   .hld-remedy-content {
     margin-top: 35px;
@@ -2586,16 +2656,16 @@ svg.lucide.lucide-shield-plus {
     padding: 30px 16px;
   }
   .hld-glp-slider-section {
-    padding: 30px 16px;
+    padding: 0px 16px;
   }
   .hld-feature-benefits-section {
-    padding: 50px 24px;
+    padding: 10px 24px;
   }
   .hld-glp {
     padding: 30px 16px;
   }
   .hld-feature-icons-section {
-    padding: 30px 16px;
+    padding: 0px 16px;
   }
   .hld-steps {
     padding: 30px 1rem;
@@ -2603,6 +2673,10 @@ svg.lucide.lucide-shield-plus {
   .glp-section {
     padding: 30px 1rem;
   }
+  .hld-faq {
+    max-width: 700px;
+    margin: 20px auto;
+}
   .hld-lab-pill-link {
     display: none;
   }
@@ -2610,8 +2684,12 @@ svg.lucide.lucide-shield-plus {
     gap: 10px;
   }
   .hld-product .img-wrap img {
-    max-height: 500px;
+    max-height: 100%;
+    margin-top:10px;
   }
+  footer.card-footer {
+    gap: 20px;
+}
   .hld-modal {
     padding: 4rem 1rem;
   }
@@ -2655,11 +2733,17 @@ svg.lucide.lucide-shield-plus {
   }
   .hld-card-media img {
     position: relative;
-  }
+    max-width: 140px;
+    margin: 0;
+    padding: 0;
+}
   .hld-card-media .clinician-img {
     left: 50%;
     transform: translateX(-50%);
-  }
+    bottom: 0;
+    max-width: 150px;
+    top: 168px;
+}
   /* mobile_device_ends */
 }
 
@@ -2801,6 +2885,7 @@ svg.lucide.lucide-shield-plus {
 @media (max-width: 768px) {
   .hld-marquee {
     animation-duration: 18s;
+    padding-bottom:0px;
   }
   
   .hld-image-card {
