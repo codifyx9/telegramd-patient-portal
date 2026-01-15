@@ -1,3 +1,14 @@
+<div class="hld-header-intro">
+    <h2 class="hld-header-title">
+        The <span class="highlighted">most comprehensive GLP-1 care program</span> online.
+    </h2>
+
+    <p class="hld-header-desc">
+        Most GLP-1 programs stop at medications. We deliver expert-led care &amp;
+        clinician support for faster, safer results.
+    </p>
+</div>
+
 <?php
 function hld_get_shield_plus_icon()
 {

@@ -17,20 +17,36 @@
         <!-- ===== SET 1 ===== -->
         <article class="hld-image-card">
           <div class="hld-image-card__images">
+              
             <figure class="hld-image-card__image">
               <img src="https://healsend.com/wp-content/uploads/2025/08/IMG_7529-optimized.png" alt="Before weight loss" loading="lazy">
               <figcaption>Before</figcaption>
             </figure>
+            
+            
             <figure class="hld-image-card__image">
               <img src="https://healsend.com/wp-content/uploads/2025/08/IMG_0145-139x300-optimized.png" alt="After weight loss" loading="lazy">
               <figcaption>After</figcaption>
             </figure>
+           
           </div>
           <div class="hld-image-card__content">
-            <span class="hld-image-card__badge">✔ Verified Customer</span>
-            <h3 class="hld-image-card__title">Emma lost <strong>50 lbs</strong> in 8 months</h3>
+            <!--<span class="hld-image-card__badge">✔ Verified Customer</span>-->
+            <span class="hld-image-card__badge">Verified Healsend Members ✅ </span>
+            <!--<h3 class="hld-image-card__title">Emma lost ↓<strong>50 lbs</strong> in 8 months</h3>-->
+            <h3 class="hld-image-card__title">
+                <span class="arrow-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+            <strong>
+             <span class="number">42</span>
+             <span class="unit">lbs</span>
+             </strong>
+            </h3>
             <p class="hld-image-card__text">
-              “Life changing results. I feel healthier, happier, and more confident every day.”
+                Emma
+              <!--“Life changing results. I feel healthier, happier, and more confident every day.”-->
             </p>
           </div>
         </article>
@@ -47,10 +63,21 @@
             </figure>
           </div>
           <div class="hld-image-card__content">
-            <span class="hld-image-card__badge">✔ Verified Customer</span>
-            <h3 class="hld-image-card__title">Sophia lost <strong>42 lbs</strong> in 7 months</h3>
+            <span class="hld-image-card__badge">Verified Healsend Members ✅ </span>
+            <!--<h3 class="hld-image-card__title">Sophia lost ↓ <strong>42 lbs</strong> in 7 months</h3>-->
+            <h3 class="hld-image-card__title"> 
+            <span class="arrow-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+            <strong>
+             <span class="number">42</span>
+             <span class="unit">lbs</span>
+             </strong>
+            </h3>
             <p class="hld-image-card__text">
-              “I finally feel like myself again.”
+                Sophia
+              <!--“I finally feel like myself again.”-->
             </p>
           </div>
         </article>
@@ -68,10 +95,21 @@
             </figure>
           </div>
           <div class="hld-image-card__content">
-            <span class="hld-image-card__badge">✔ Verified Customer</span>
-            <h3 class="hld-image-card__title">Emma lost <strong>50 lbs</strong> in 8 months</h3>
+            <span class="hld-image-card__badge">Verified Healsend Members ✅</span>
+            <!--<h3 class="hld-image-card__title">Emma lost ↓<strong>50 lbs</strong> in 8 months</h3>-->
+            <h3 class="hld-image-card__title"> 
+            <span class="arrow-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+            <strong>
+             <span class="number">50</span>
+             <span class="unit">lbs</span>
+             </strong>
+            </h3>
             <p class="hld-image-card__text">
-              “Life changing results. I feel healthier, happier, and more confident every day.”
+                Emma
+              <!--“Life changing results. I feel healthier, happier, and more confident every day.”-->
             </p>
           </div>
         </article>
@@ -88,10 +126,22 @@
             </figure>
           </div>
           <div class="hld-image-card__content">
-            <span class="hld-image-card__badge">✔ Verified Customer</span>
-            <h3 class="hld-image-card__title">Sophia lost <strong>42 lbs</strong> in 7 months</h3>
+            <span class="hld-image-card__badge">Verified Healsend Members ✅</span>
+            <!--<h3 class="hld-image-card__title">Sophia lost ↓<strong>42 lbs</strong> in 7 months</h3>-->
+            <h3 class="hld-image-card__title"> 
+              <span class="arrow-icon">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>  
+            <strong>
+             <span class="number">42</span>
+             <span class="unit">lbs</span>
+             </strong>
+            </h3>
+
             <p class="hld-image-card__text">
-              “I finally feel like myself again.”
+                Sophia
+              <!--“I finally feel like myself again.”-->
             </p>
           </div>
         </article>
