@@ -333,11 +333,14 @@ ul.benefits li {
 }
 
 .hld-product-btn {
-  padding: 0.7rem 1.4rem;
-  border-radius: 999px;
-  font-weight: 500;
-  text-decoration: none;
-  font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    font-size: 0.95rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .hld-btn-primary {
@@ -579,9 +582,33 @@ button.hld-new-arrow.hld-new-arrow--right, button.hld-new-arrow.hld-new-arrow--l
     font-size: 1.1rem;
     line-height: 1.7;
     color: var(--hld-black);
-    margin-bottom: 24px;
-    height: 70px;
+    /*margin-bottom: 24px;*/
+    /*height: 70px;*/
 }
+/*EQUAL HEIGHT*/
+.hld-reviews__slider {
+    display: flex;
+}
+
+.hld-review-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.hld-review-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    line-height: 1.5;
+    min-height: calc(1.5em * 3);
+}
+.hld-review-name,
+.hld-review__verfied_label {
+    margin-top: auto;
+}
+/*EQUAL HEIGHT*/
 
 .hld-review-name {
   display: block;
@@ -655,24 +682,7 @@ button.hld-new-arrow.hld-new-arrow--right, button.hld-new-arrow.hld-new-arrow--l
   
   color: var(--hld-black);
 }
-a.hld-glp__btn.hld-glp__btn--primary:hover{
-     background: #0056b3 !important;
-    transition: 0.5s !important;
-}
-a.hld-glp__btn.hld-glp__btn--primary {
-    width: 32%;}
-a.hld-glp__btn.hld-glp__btn--primary::before {
-    content: "";
-    position: relative;
-    top: 0;
-   
-    width: 8%;
-    height: 100%;
-    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
-    animation: shimmerMove 2.5s linear infinite;
-    pointer-events: none;
-   
-}
+
 
 .hld-glp__price strong {
   font-size: 40px;
@@ -834,7 +844,7 @@ a.hld-glp__btn.hld-glp__btn--primary::before {
     rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.1) 0px 8px 10px;
   /*padding: 30px;*/
-  border-radius: 10px;
+  border-radius: 16px;
   max-width:1200px;
   margin:0 auto;
 }
@@ -842,7 +852,7 @@ a.hld-glp__btn.hld-glp__btn--primary::before {
 /* Card */
 .hld-card {
   background: var(--card-bg);
-  border-radius: 10px;
+  border-radius: 16px;
   box-shadow: var(--hld-shadow-card);
   padding: 24px;
   padding-bottom:0px;
@@ -1107,11 +1117,171 @@ a.hld-glp__btn.hld-glp__btn--primary::before {
 
 .hld-image-card__images 
 .hld-image-card__image:first-child figcaption {
-  background-color: #808080a3;
+    background-color: #b0afaf63;
+    border: #fff 1px solid;
+    color:#fff !important;
+}
+/* button */
+
+a.hld-product-btn.hld-btn-primary{
+    position: relative;
+    overflow: hidden;
+}
+
+a.hld-product-btn.hld-btn-primary::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    animation: shimmerMove 3.5s linear infinite;
+    pointer-events: none;
+}
+.hld-glp__btn.hld-glp__btn--primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.hld-glp__btn.hld-glp__btn--primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    animation: shimmerMove 3.5s linear infinite;
+    pointer-events: none;
+}
+.hld-new-card__btn {
+    position: relative;
+    overflow: hidden;
+}
+.hld-new-card__btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    animation: shimmerMove 3.5s linear infinite;
+    pointer-events: none;
+}
+a.hld-cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+a.hld-cta-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    animation: shimmerMove 3.5s linear infinite;
+    pointer-events: none;
+}
+a.cta-link {
+    position: relative;
+    overflow: hidden;
+}
+
+a.cta-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    animation: shimmerMove 3.5s linear infinite;
+    pointer-events: none;
+}
+a.hld-btn.hld-get-started-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+a.hld-btn.hld-get-started-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    animation: shimmerMove 3.5s linear infinite;
+    pointer-events: none;
+}
+a.hld-slide-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+a.hld-slide-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%
+    );
+    animation: shimmerMove 2.5s linear infinite;
+    pointer-events: none;
 }
 
 
+@keyframes shimmerMove {
+    0% {
+        left: -150%;
+    }
+    100% {
+        left: 150%;
+    }
+}
 
+
+/*button-end*/
 .hld-prev {
   left: 12px;
 }
@@ -1459,7 +1629,7 @@ Popup Section
 
 .hld-lab-pill {
   background: rgba(255, 255, 255, 0.18);
-  padding: 1rem 1.25rem;
+  padding: 0.7rem 1.25rem;
   border-radius: 999px;
   color: #fff;
   display: flex;
@@ -1768,7 +1938,7 @@ Performance Section
   background: radial-gradient(circle at top left, #6d6ffc 0%, #5456db 70%);
   color: #fff;
   border-radius: 20px;
-  padding: 40px 32px;
+  padding: 20px 20px;
   text-align: center;
 }
 
@@ -1907,6 +2077,21 @@ ROOTED SECTION IN SCIENCE
 }
 
 /* Card */
+a.hld-slide-btn {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    color: var(--hld-white);
+    background: var(--primary);
+    font-weight: 600;
+    margin-top:10px;
+    padding: 0.6rem 2.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: var(--hld-shadow-card);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 .hld-feature-benefit-card {
   background: transparent;
   padding: 0 16px;
@@ -2521,7 +2706,7 @@ svg.lucide.lucide-shield-plus {
   }
 
   .hld-performance-box {
-    padding: 32px 24px;
+    padding: 18px 20px;
     text-align: left;
   }
 }

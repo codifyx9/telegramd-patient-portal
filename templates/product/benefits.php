@@ -18,19 +18,34 @@ $benefits_items = get_field('benefits_items');
     <?php if ($benefits_items): ?>
       <div class="hld-slider-wrapper">
 
-
         <div class="hld-slider-track">
 
-          <?php foreach ($benefits_items as $item):
-            $image = $item['benefit_image']; // This is an array because ACF return_format = array
-            $title = $item['benefit_title'];
+          <?php
+          $total_items = count($benefits_items);
+          $index = 0;
+          ?>
+
+          <?php foreach ($benefits_items as $item): 
+            $index++;
+
+            $image   = $item['benefit_image'];
+            $title   = $item['benefit_title'];
             $img_url = $image['url'];
             $img_alt = $image['alt'] ?: $title;
+
+            $is_last = ($index === $total_items);
           ?>
             <article class="hld-slide">
               <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" />
+
               <div class="hld-slide-overlay">
                 <p><?php echo esc_html($title); ?></p>
+
+                <?php if ($is_last): ?>
+                  <a href="/your-target-link" class="hld-slide-btn">
+                    View More
+                  </a>
+                <?php endif; ?>
               </div>
             </article>
           <?php endforeach; ?>
@@ -45,6 +60,7 @@ $benefits_items = get_field('benefits_items');
             &#10095;
           </button>
         </div>
+
       </div>
     <?php endif; ?>
 
