@@ -124,10 +124,34 @@
 
          </section>
 
-         <footer class="card-footer">
-             <span>🇺🇸 Compounded in the U.S.A</span>
-             <span>✔ FSA & HSA Eligible</span>
-         </footer>
+         <!--<footer class="card-footer">-->
+         <!--    <span>ðŸ‡ºðŸ‡¸ Compounded in the U.S.A</span>-->
+         <!--    <span>âœ” FSA & HSA Eligible</span>-->
+         <!--</footer>-->
+         
+         <?php if (have_rows('footer_image_and_text')) : ?>
+            <footer class="card-footer">
+                <?php while (have_rows('footer_image_and_text')) : the_row(); 
+                    $image = get_sub_field('image');
+                    $text  = get_sub_field('text');
+                ?>
+                    <span>
+                        <?php if ($image) : ?>
+                            <img 
+                                src="<?php echo esc_url($image['url']); ?>" 
+                                alt="<?php echo esc_attr($image['alt']); ?>" 
+                                class="footer-icon"
+                            />
+                        <?php endif; ?>
+        
+                        <?php if ($text) : ?>
+                            <?php echo esc_html($text); ?>
+                        <?php endif; ?>
+                    </span>
+                <?php endwhile; ?>
+            </footer>
+        <?php endif; ?>
+
      </article>
 
 

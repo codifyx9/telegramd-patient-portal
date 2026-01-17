@@ -27,14 +27,43 @@ $product_image    = get_field('product_bottom_image'); // image array
                 <?php endif; ?>
 
                 <?php if ($product_features): ?>
-                    <ul class="hld-glp__features">
-                        <?php foreach ($product_features as $feature): ?>
-                            <?php if (!empty($feature['product_bottom_feature'])): ?>
-                                <li><?php echo esc_html($feature['product_bottom_feature']); ?></li>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
+  <ul class="hld-glp__features">
+    
+    <?php foreach ($product_features as $feature): ?>
+
+      <?php
+        $text  = $feature['product_bottom_feature'] ?? '';
+        $image = $feature['product_bottom_image'] ?? '';
+      ?>
+
+      <?php if ($text || $image): ?>
+        <li class="hld-glp__feature-item">
+
+          <?php if ($image && is_array($image)): ?>
+            <img
+              class="hld-glp__feature-image"
+              src="<?php echo esc_url($image['url']); ?>"
+              alt="<?php echo esc_attr($image['alt']); ?>"
+              width="<?php echo esc_attr($image['width']); ?>"
+              height="<?php echo esc_attr($image['height']); ?>"
+              loading="lazy"
+            />
+          <?php endif; ?>
+
+          <?php if ($text): ?>
+            <span class="hld-glp__feature-text">
+              <?php echo esc_html($text); ?>
+            </span>
+          <?php endif; ?>
+
+        </li>
+      <?php endif; ?>
+
+    <?php endforeach; ?>
+
+  </ul>
+<?php endif; ?>
+
 
                 <div class="hld-glp__actions">
                     <?php if ($get_started_link): ?>

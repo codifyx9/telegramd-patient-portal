@@ -1,152 +1,99 @@
+<?php
+$title        = get_field('image_slider_title');
+$subtitle     = get_field('image_slider_subtitle');
+$arrow_icon   = get_field('arrow_icon_svg');
+$verified_svg = get_field('verified_icon_svg');
+$items        = get_field('image_slider_items');
+?>
+
+<?php if ($items): ?>
 <section class="hld-image-slider">
   <div class="hld-image-slider__container">
 
-    <header class="hld-image-slider__header">
-      <h2 class="hld-image-slider__title">
-        Real <span>weight loss</span> transformations
-      </h2>
-      <p class="hld-image-slider__subtitle">
-        Verified customers sharing real before & after results
-      </p>
-    </header>
+    <?php if ($title || $subtitle): ?>
+      <header class="hld-image-slider__header">
+        <?php if ($title): ?>
+          <h2 class="hld-image-slider__title">
+            <?php echo wp_kses_post($title); ?>
+          </h2>
+        <?php endif; ?>
+
+        <?php if ($subtitle): ?>
+          <p class="hld-image-slider__subtitle">
+            <?php echo esc_html($subtitle); ?>
+          </p>
+        <?php endif; ?>
+      </header>
+    <?php endif; ?>
 
     <div class="hld-image-slider__wrapper">
-
       <div class="hld-image-slider__track hld-marquee">
 
-        <!-- ===== SET 1 ===== -->
+        <?php
+        // Duplicate items for marquee effect
+        $marquee_items = array_merge($items, $items);
+        foreach ($marquee_items as $item):
+          $before_img   = $item['before_image'];
+          $after_img    = $item['after_image'];
+          $before_cap   = $item['before_caption'] ?: 'Before';
+          $after_cap    = $item['after_caption'] ?: 'After';
+          $weight_num   = $item['weight_number'];
+          $weight_unit  = $item['weight_unit'] ?: 'lbs';
+          $member_name  = $item['member_name'];
+          $badge_text   = $item['verified_badge_text'] ?: 'Verified Healsend Members';
+        ?>
         <article class="hld-image-card">
           <div class="hld-image-card__images">
-              
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/08/IMG_7529-optimized.png" alt="Before weight loss" loading="lazy">
-              <figcaption>Before</figcaption>
-            </figure>
-            
-            
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/08/IMG_0145-139x300-optimized.png" alt="After weight loss" loading="lazy">
-              <figcaption>After</figcaption>
-            </figure>
-           
+
+            <?php if ($before_img): ?>
+              <figure class="hld-image-card__image">
+                <img src="<?php echo esc_url($before_img); ?>" alt="Before weight loss" loading="lazy">
+                <figcaption><?php echo esc_html($before_cap); ?></figcaption>
+              </figure>
+            <?php endif; ?>
+
+            <?php if ($after_img): ?>
+              <figure class="hld-image-card__image">
+                <img src="<?php echo esc_url($after_img); ?>" alt="After weight loss" loading="lazy">
+                <figcaption><?php echo esc_html($after_cap); ?></figcaption>
+              </figure>
+            <?php endif; ?>
+
           </div>
+
           <div class="hld-image-card__content">
-            <!--<span class="hld-image-card__badge">✔ Verified Customer</span>-->
-            <span class="hld-image-card__badge">Verified Healsend Members ✅ </span>
-            <!--<h3 class="hld-image-card__title">Emma lost ↓<strong>50 lbs</strong> in 8 months</h3>-->
-            <h3 class="hld-image-card__title">
+            <span class="hld-image-card__badge">
+              <?php echo esc_html($badge_text); ?>
+              <?php if ($verified_svg): ?>
+                <img src="<?php echo esc_url($verified_svg['url']); ?>" alt="Verified" loading="lazy">
+              <?php endif; ?>
+            </span>
+
+            <?php if ($weight_num): ?>
+              <h3 class="hld-image-card__title">
                 <span class="arrow-icon">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-            <strong>
-             <span class="number">42</span>
-             <span class="unit">lbs</span>
-             </strong>
-            </h3>
-            <p class="hld-image-card__text">
-                Emma
-              <!--“Life changing results. I feel healthier, happier, and more confident every day.”-->
-            </p>
+                  <?php if ($arrow_icon): ?>
+                    <img src="<?php echo esc_url($arrow_icon['url']); ?>" alt="" aria-hidden="true">
+                  <?php endif; ?>
+                </span>
+                <strong>
+                  <span class="number"><?php echo esc_html($weight_num); ?></span>
+                  <span class="unit"><?php echo esc_html($weight_unit); ?></span>
+                </strong>
+              </h3>
+            <?php endif; ?>
+
+            <?php if ($member_name): ?>
+              <p class="hld-image-card__text">
+                <?php echo esc_html($member_name); ?>
+              </p>
+            <?php endif; ?>
           </div>
         </article>
-
-        <article class="hld-image-card">
-          <div class="hld-image-card__images">
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/09/istockphoto-514517068-612x612-1-e1759189492624-optimized.jpg" alt="Before weight loss">
-              <figcaption>Before</figcaption>
-            </figure>
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/09/istockphoto-514517068-612x612-2-e1759189869492-optimized.jpg" alt="After weight loss">
-              <figcaption>After</figcaption>
-            </figure>
-          </div>
-          <div class="hld-image-card__content">
-            <span class="hld-image-card__badge">Verified Healsend Members ✅ </span>
-            <!--<h3 class="hld-image-card__title">Sophia lost ↓ <strong>42 lbs</strong> in 7 months</h3>-->
-            <h3 class="hld-image-card__title"> 
-            <span class="arrow-icon">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-            <strong>
-             <span class="number">42</span>
-             <span class="unit">lbs</span>
-             </strong>
-            </h3>
-            <p class="hld-image-card__text">
-                Sophia
-              <!--“I finally feel like myself again.”-->
-            </p>
-          </div>
-        </article>
-
-        <!-- ===== SET 2 (DUPLICATE) ===== -->
-        <article class="hld-image-card">
-          <div class="hld-image-card__images">
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/08/IMG_7529-optimized.png" alt="Before weight loss">
-              <figcaption>Before</figcaption>
-            </figure>
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/08/IMG_0145-139x300-optimized.png" alt="After weight loss">
-              <figcaption>After</figcaption>
-            </figure>
-          </div>
-          <div class="hld-image-card__content">
-            <span class="hld-image-card__badge">Verified Healsend Members ✅</span>
-            <!--<h3 class="hld-image-card__title">Emma lost ↓<strong>50 lbs</strong> in 8 months</h3>-->
-            <h3 class="hld-image-card__title"> 
-            <span class="arrow-icon">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-            <strong>
-             <span class="number">50</span>
-             <span class="unit">lbs</span>
-             </strong>
-            </h3>
-            <p class="hld-image-card__text">
-                Emma
-              <!--“Life changing results. I feel healthier, happier, and more confident every day.”-->
-            </p>
-          </div>
-        </article>
-
-        <article class="hld-image-card">
-          <div class="hld-image-card__images">
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/09/istockphoto-514517068-612x612-1-e1759189492624-optimized.jpg" alt="Before weight loss">
-              <figcaption>Before</figcaption>
-            </figure>
-            <figure class="hld-image-card__image">
-              <img src="https://healsend.com/wp-content/uploads/2025/09/istockphoto-514517068-612x612-2-e1759189869492-optimized.jpg" alt="After weight loss">
-              <figcaption>After</figcaption>
-            </figure>
-          </div>
-          <div class="hld-image-card__content">
-            <span class="hld-image-card__badge">Verified Healsend Members ✅</span>
-            <!--<h3 class="hld-image-card__title">Sophia lost ↓<strong>42 lbs</strong> in 7 months</h3>-->
-            <h3 class="hld-image-card__title"> 
-              <span class="arrow-icon">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4V20M12 20L6 14M12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>  
-            <strong>
-             <span class="number">42</span>
-             <span class="unit">lbs</span>
-             </strong>
-            </h3>
-
-            <p class="hld-image-card__text">
-                Sophia
-              <!--“I finally feel like myself again.”-->
-            </p>
-          </div>
-        </article>
+        <?php endforeach; ?>
 
       </div>
     </div>
   </div>
 </section>
+<?php endif; ?>

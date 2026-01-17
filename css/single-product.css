@@ -178,8 +178,16 @@ article.product-card {
 
 .tab-content.active {
   display: block;
+  padding-bottom:5px;
 }
-
+.benefits span.icon {
+    height: 20px !important;
+    width: 20px !important;
+}
+.card-footer img {
+    height: 20px;
+    width: 25px;
+}
 ul.benefits {
   list-style: none;
   padding: 0;
@@ -620,8 +628,8 @@ button.hld-new-arrow.hld-new-arrow--right, button.hld-new-arrow.hld-new-arrow--l
 .hld-reviews__arrow {
   position: absolute;
   bottom: -56px;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: none;
   background: var(--primary);
@@ -697,6 +705,15 @@ button.hld-new-arrow.hld-new-arrow--right, button.hld-new-arrow.hld-new-arrow--l
   list-style: none;
   padding: 0;
   margin: 0 0 32px;
+}
+img.hld-glp__feature-image {
+    height: 20px;
+    width: 22px;
+}
+ul.hld-glp__features li.hld-glp__feature-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
 .hld-glp__features li {
@@ -1028,7 +1045,7 @@ button.hld-new-arrow.hld-new-arrow--right, button.hld-new-arrow.hld-new-arrow--l
   BENEFITS
 ===================*/
 .hld-glp-slider-section {
-    padding: 64px 10px 20px 16px;
+    padding: 40px 10px 20px 16px;
     background: var(--hld-white);
 }
 .hld-slider-header h2 {
@@ -1292,9 +1309,9 @@ a.hld-slide-btn::before {
 
 /* Mobile */
 @media (max-width: 768px) {
-  .hld-slide {
-    flex: 0 0 100%;
-  }
+  /*.hld-slide {*/
+  /*  flex: 0 0 100%;*/
+  /*}*/
   .hld-cta-button {
     
     padding: 16px 14px;
@@ -1363,6 +1380,25 @@ HEALSEND STEPS
   justify-content: center;
   margin-bottom: 16px;
   color: var(--hld-black);
+}
+li.hld-feature-item img.hld-feature-icon {
+    height: 18px;
+    margin-bottom: 0px !important;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+li.hld-feature-item {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+h4.hld-clinical-weight-loss-subheading {
+    margin-bottom: 20px;
+}
+.hld-clinical-weight-loss-features {
+  list-style: none !important;
+  padding: 0;
+  margin-left: 0 !important;
 }
 
 .hld-feature-icon svg {
@@ -2516,7 +2552,6 @@ IMAGE SLIDER SECTION
   display: flex;
   gap: 24px;
   transition: transform 0.45s ease;
-  padding-bottom: 64px;
 }
 
 /* Card */
@@ -2650,11 +2685,13 @@ svg.lucide.lucide-shield-plus {
   }
 
   .hld-image-card__image {
-    height: 360px;
+    height: 320px;
   }
   .hld-image-card__image img {
-    
     height: 100%;
+}
+header.hld-slider-header {
+    text-align: center;
 }
 }
 
@@ -2973,6 +3010,9 @@ a.hld-glp__btn.hld-glp__btn--primary {
   .hld-glp__actions {
     flex-direction: column;
   }
+  .hld-slide {
+    flex: 0 0 100%;
+}
 
   .hld-glp__btn {
     width: 100%;
@@ -3043,13 +3083,16 @@ span.unit {
 }
 
 span.arrow-icon {
-    display: flex;
-    align-items: baseline;
     color: green;
+    top: -5px;
+    position: relative;
 }
 .hld-image-card__image {
   width: 50%;
   position: relative;
+}
+span.hld-image-card__badge img {
+    height: 16px;
 }
 span.hld-image-card__badge {
     position: absolute;
@@ -3065,7 +3108,7 @@ span.hld-image-card__badge {
 }
 h3.hld-image-card__title {
     position: absolute;
-    top: 192px;
+    top: 190px;
     font-weight: 500;
     z-index: 9;
 }
@@ -3192,7 +3235,11 @@ p.hld-image-card__text {
     animation-duration: 18s;
     padding-bottom:0px;
   }
-  
+  .hld-slide-overlay p {
+    
+    font-size: 18px;
+   
+}
   .hld-image-card {
     flex: 0 0 280px; /* Smaller cards on mobile */
   }
